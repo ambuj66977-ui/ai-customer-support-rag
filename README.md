@@ -274,6 +274,3 @@ Improvements should follow measured errors. Candidates include expanding difficu
 └── requirements-dev.txt
 ```
 
-## Interview summary
-
-The project converts FAQ questions into normalized Sentence Transformer embeddings and stores them in an exact FAISS index. A user question is embedded with the same model, the most similar FAQs are retrieved, weak retrieval is rejected using a calibrated threshold, and accepted context is placed in a structured LangChain prompt. A replaceable local or OpenAI model then generates an answer constrained to that context. Retrieval and response quality are evaluated separately so failures can be attributed to the correct stage.
