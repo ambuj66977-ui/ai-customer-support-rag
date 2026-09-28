@@ -40,11 +40,13 @@ class RAGPipeline:
         *,
         top_k: int = 3,
         min_similarity: float = 0.35,
+        answer_from_top_source: bool = False,
     ) -> None:
         self.retriever = retriever
         self.llm = llm
         self.top_k = top_k
         self.min_similarity = min_similarity
+        self.answer_from_top_source = answer_from_top_source
 
     def ask(self, question: str) -> RAGResult:
         if not question.strip():
@@ -56,6 +58,8 @@ class RAGPipeline:
         )
         if not results:
             return RAGResult(question, FALLBACK_ANSWER, [], True)
+        if self.answer_from_top_source:
+            return RAGResult(question, results[0].answer, results, False)
         answer = self.llm.generate(build_messages(question, results)).strip()
         if not answer or _looks_like_prompt_leak(answer):
             # Retrieval already passed the similarity gate. Returning the

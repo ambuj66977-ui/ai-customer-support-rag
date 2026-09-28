@@ -63,3 +63,24 @@ class RAGPipelineTests(unittest.TestCase):
 
         self.assertEqual(result.answer, "Return eligible items within 30 days.")
         self.assertFalse(result.used_fallback)
+
+    def test_top_source_mode_returns_approved_answer_without_calling_llm(self) -> None:
+        source = RetrievalResult(
+            "FAQ-1",
+            "Where is my refund?",
+            "Allow five business days plus your bank's posting time.",
+            "refunds",
+            "missing_refund",
+            0.8,
+            1,
+        )
+        retriever = StubRetriever([source])
+        llm = FakeLLM("Incorrect generated answer")
+
+        result = RAGPipeline(retriever, llm, answer_from_top_source=True).ask(
+            "I didn't get my refund"
+        )
+
+        self.assertEqual(result.answer, source.answer)
+        self.assertIsNone(llm.messages)
+        self.assertFalse(result.used_fallback)

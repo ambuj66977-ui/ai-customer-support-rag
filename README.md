@@ -123,7 +123,7 @@ LangChain constructs separate system and user messages. The system instruction r
 
 ## LLM
 
-The default no-key implementation uses `google/flan-t5-small`; the optional `ChatOpenAI` adapter uses temperature `0` and reads credentials only from the environment. Both implement the same small language-model interface.
+For dependable local demonstrations, the default no-key mode returns the approved answer from the highest-ranked FAQ after retrieval passes the similarity threshold. The local FLAN-T5 adapter remains available for generation experiments and evaluation, while the optional `ChatOpenAI` adapter uses temperature `0` and reads credentials only from the environment.
 
 RAG reduces hallucination risk; it does not guarantee perfectly grounded answers.
 
@@ -210,7 +210,7 @@ Never commit `.env`.
 streamlit run app.py
 ```
 
-The default local provider performs complete retrieval and generation without an API key. Set `LLM_PROVIDER=openai` and provide `OPENAI_API_KEY` to use the optional OpenAI adapter.
+The default local provider performs semantic retrieval and returns the highest-ranked approved FAQ answer without an API key. Set `LLM_PROVIDER=openai` and provide `OPENAI_API_KEY` to generate a grounded paraphrase with the optional OpenAI adapter.
 
 The interface opens with a compact welcome card. Start a conversation or select an orders, returns, or account topic to open the messenger. Questions and answers remain visible during the current browser session, with expandable supporting FAQs beneath each answer. The settings control contains retrieval tuning and a clear-conversation action; the back arrow returns to the welcome card without clearing the conversation. Failed requests offer a retry button.
 
@@ -273,4 +273,3 @@ Improvements should follow measured errors. Candidates include expanding difficu
 ├── requirements.txt
 └── requirements-dev.txt
 ```
-

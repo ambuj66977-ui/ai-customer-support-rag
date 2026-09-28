@@ -96,10 +96,17 @@ def render_message(message: dict) -> None:
 def generate_answer(question: str, top_k: int, threshold: float) -> dict:
     try:
         pipeline = RAGPipeline(
-            load_retriever(), LazyLanguageModel(), top_k=top_k, min_similarity=threshold
+            load_retriever(),
+            LazyLanguageModel(),
+            top_k=top_k,
+            min_similarity=threshold,
+            answer_from_top_source=settings.llm_provider == "local",
         )
         result = pipeline.ask(question)
-        return {"role": "assistant", "text": result.answer, "sources": result.retrieved_documents}
+        sources = result.retrieved_documents
+        if settings.llm_provider == "local":
+            sources = sources[:1]
+        return {"role": "assistant", "text": result.answer, "sources": sources}
     except FileNotFoundError:
         logger.exception("Support knowledge base or model file is missing")
         message = "The support library isn't ready yet. Please try again once the app has been set up."
