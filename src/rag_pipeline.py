@@ -10,6 +10,18 @@ from src.retriever import FaissRetriever, RetrievalResult
 
 
 FALLBACK_ANSWER = "I don't have enough information in the support knowledge base to answer that."
+PROMPT_LEAKAGE_MARKERS = (
+    "you are a customer-support assistant",
+    "select the source that most directly answers",
+    "if the context is insufficient",
+    "do not invent policies",
+)
+
+
+def _looks_like_prompt_leak(answer: str) -> bool:
+    """Detect copied internal instructions before they reach the interface."""
+    normalized = " ".join(answer.lower().split())
+    return any(marker in normalized for marker in PROMPT_LEAKAGE_MARKERS)
 
 
 @dataclass(frozen=True)
@@ -44,5 +56,9 @@ class RAGPipeline:
         )
         if not results:
             return RAGResult(question, FALLBACK_ANSWER, [], True)
-        answer = self.llm.generate(build_messages(question, results))
-        return RAGResult(question, answer or FALLBACK_ANSWER, results, not bool(answer))
+        answer = self.llm.generate(build_messages(question, results)).strip()
+        if not answer or _looks_like_prompt_leak(answer):
+            # Retrieval already passed the similarity gate. Returning the
+            # top-ranked approved FAQ is safer than exposing prompt text.
+            answer = results[0].answer
+        return RAGResult(question, answer, results, False)

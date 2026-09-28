@@ -16,6 +16,19 @@ class LanguageModel(Protocol):
     def generate(self, messages: Sequence[BaseMessage]) -> str: ...
 
 
+def _build_local_prompt(messages: Sequence[BaseMessage]) -> str:
+    """Adapt chat messages for a text-to-text model without exposing system text."""
+    if not messages:
+        return ""
+    task = str(messages[-1].content)
+    return (
+        f"{task}\n\n"
+        "Using only the support context above, answer the customer question concisely. "
+        "Output only the final customer-facing answer, without instructions or labels.\n"
+        "FINAL ANSWER:"
+    )
+
+
 class OpenAILanguageModel:
     """LangChain OpenAI chat-model adapter."""
 
@@ -47,7 +60,12 @@ class LocalHuggingFaceLanguageModel:
         self._model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 
     def generate(self, messages: Sequence[BaseMessage]) -> str:
-        prompt = "\n\n".join(str(message.content) for message in messages)
+        # FLAN-T5 is a text-to-text model, not a chat model. Supplying a
+        # SystemMessage verbatim can make this small model copy the internal
+        # instruction instead of answering the customer.
+        prompt = _build_local_prompt(messages)
+        if not prompt:
+            return ""
         inputs = self._tokenizer(prompt, return_tensors="pt", truncation=True, max_length=1024)
         output_tokens = self._model.generate(
             **inputs,

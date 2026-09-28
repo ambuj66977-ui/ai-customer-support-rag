@@ -43,3 +43,23 @@ class RAGPipelineTests(unittest.TestCase):
         self.assertIn("Do this.", rendered)
         self.assertIn("Please help", rendered)
         self.assertEqual(retriever.arguments, ("Please help", 1, 0.4))
+
+    def test_prompt_leak_is_replaced_with_top_approved_answer(self) -> None:
+        source = RetrievalResult(
+            "FAQ-1",
+            "What is your return policy?",
+            "Return eligible items within 30 days.",
+            "returns",
+            "return_policy",
+            0.8,
+            1,
+        )
+        retriever = StubRetriever([source])
+        llm = FakeLLM(
+            "You are a customer-support assistant. Select the source that most directly answers."
+        )
+
+        result = RAGPipeline(retriever, llm).ask("What is your return policy?")
+
+        self.assertEqual(result.answer, "Return eligible items within 30 days.")
+        self.assertFalse(result.used_fallback)
