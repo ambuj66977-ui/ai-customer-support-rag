@@ -1,0 +1,71 @@
+query_id,query,expected_document_id,query_type
+Q-001,What steps do I follow to register for a new account?,FAQ-0001,in_domain
+Q-002,I want to use the shop without signing up. Is that possible?,FAQ-0008,in_domain
+Q-003,Can my two customer profiles be combined into one?,FAQ-0010,in_domain
+Q-004,The password recovery email link no longer works.,FAQ-0012,in_domain
+Q-005,How can I log every device out of my profile?,FAQ-0016,in_domain
+Q-006,A sign-in notification appeared but it wasn't me.,FAQ-0017,in_domain
+Q-007,I need to store another location for deliveries.,FAQ-0022,in_domain
+Q-008,Can I correct the destination after submitting an order?,FAQ-0027,in_domain
+Q-009,Please stop sending me advertising messages.,FAQ-0030,in_domain
+Q-010,Where do I obtain a PDF invoice for my purchase?,FAQ-0031,in_domain
+Q-011,There are two transactions on my card for one purchase.,FAQ-0035,in_domain
+Q-012,What money will checkout charge me in?,FAQ-0038,in_domain
+Q-013,Which cards or wallets can I pay with?,FAQ-0041,in_domain
+Q-014,Can I pay part on one card and the rest on another?,FAQ-0046,in_domain
+Q-015,Do you allow payment when the parcel arrives?,FAQ-0047,in_domain
+Q-016,I want to stop an order before it is sent.,FAQ-0053,in_domain
+Q-017,Can you put two purchases into the same shipment?,FAQ-0056,in_domain
+Q-018,What does it mean when my item is on backorder?,FAQ-0059,in_domain
+Q-019,What delivery services can I choose from?,FAQ-0061,in_domain
+Q-020,Can you deliver my purchase to a post office box?,FAQ-0065,in_domain
+Q-021,My purchase is being sent as several parcels. Why?,FAQ-0068,in_domain
+Q-022,The courier status has not changed since dispatch.,FAQ-0072,in_domain
+Q-023,The carrier says it arrived but there is nothing here.,FAQ-0074,in_domain
+Q-024,A product was absent from the box I received.,FAQ-0080,in_domain
+Q-025,What is the deadline for sending something back?,FAQ-0081,in_domain
+Q-026,Will I be charged for the return label?,FAQ-0083,in_domain
+Q-027,I need a different size. Can you swap the item?,FAQ-0090,in_domain
+Q-028,When should the money from my return reach me?,FAQ-0091,in_domain
+Q-029,Can you send the refund to another bank card?,FAQ-0092,in_domain
+Q-030,My reimbursement was approved but is still missing.,FAQ-0094,in_domain
+Q-031,I don't want any more recurring deliveries.,FAQ-0102,in_domain
+Q-032,Can I miss the upcoming recurring shipment only?,FAQ-0104,in_domain
+Q-033,The recurring order card payment did not go through.,FAQ-0107,in_domain
+Q-034,Can I receive an alert when this product returns?,FAQ-0112,in_domain
+Q-035,How do I know if this accessory works with my model?,FAQ-0114,in_domain
+Q-036,What exactly comes inside this bundle?,FAQ-0119,in_domain
+Q-037,Where is the warranty duration shown?,FAQ-0121,in_domain
+Q-038,Is damage from dropping a product covered?,FAQ-0124,in_domain
+Q-039,How do I see progress on a warranty request?,FAQ-0128,in_domain
+Q-040,The mobile application crashes before it opens.,FAQ-0131,in_domain
+Q-041,My shopping cart contents vanished.,FAQ-0134,in_domain
+Q-042,The evidence photo will not attach to my case.,FAQ-0139,in_domain
+Q-043,I want Northstar to erase my personal information.,FAQ-0142,in_domain
+Q-044,Where are the controls for non-essential cookies?,FAQ-0145,in_domain
+Q-045,Does the company give customer information to vendors?,FAQ-0150,in_domain
+Q-046,How can I tell if an email claiming to be from you is fraudulent?,FAQ-0151,in_domain
+Q-047,Would an employee ever need my account password?,FAQ-0155,in_domain
+Q-048,A caller says they need my login code for a reimbursement.,FAQ-0159,in_domain
+Q-049,When will points from my purchase become usable?,FAQ-0163,in_domain
+Q-050,What happens to earned points if I send an item back?,FAQ-0166,in_domain
+Q-051,May I give my points to a family member's profile?,FAQ-0168,in_domain
+Q-052,How can I see how much value remains on a gift voucher?,FAQ-0173,in_domain
+Q-053,Is it possible to pay using several gift cards?,FAQ-0178,in_domain
+Q-054,Will a gift voucher from another currency work here?,FAQ-0180,in_domain
+Q-055,Checkout says my coupon cannot be used.,FAQ-0182,in_domain
+Q-056,I forgot the voucher code before ordering. Can it be added now?,FAQ-0184,in_domain
+Q-057,Do you offer the same lower price as competing stores?,FAQ-0189,in_domain
+Q-058,Where can I view progress on my help request?,FAQ-0193,in_domain
+Q-059,Should I submit another ticket while waiting for a reply?,FAQ-0195,in_domain
+Q-060,Why does the agent need to confirm who I am?,FAQ-0200,in_domain
+Q-061,Who won the latest international football tournament?,,out_of_domain
+Q-062,Can you diagnose the pain in my knee?,,out_of_domain
+Q-063,Write a poem about a sunset over the ocean.,,out_of_domain
+Q-064,What is the capital city of Brazil?,,out_of_domain
+Q-065,Help me calculate my income tax return.,,out_of_domain
+Q-066,What will tomorrow's weather be in Delhi?,,out_of_domain
+Q-067,Explain how photosynthesis works.,,out_of_domain
+Q-068,Which shares should I buy this week?,,out_of_domain
+Q-069,Can you translate this paragraph into French?,,out_of_domain
+Q-070,Who should I vote for in the next election?,,out_of_domain

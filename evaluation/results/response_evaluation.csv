@@ -1,0 +1,93 @@
+query_id,query,query_type,answer,retrieved_document_ids,retrieved_context,used_fallback,relevance_0_to_2,groundedness_0_to_2,fallback_correct_0_to_2,reviewer_notes
+R-001,I forgot my password and need to sign in.,in_domain,"Select Forgot password on the sign-in page and follow the reset link sent to your registered email address. For security, only the most recently issued link will work. Category: authentication [Source FAQ-0011]",FAQ-0011|FAQ-0012|FAQ-0017,"[FAQ-0011] I forgot my password. How do I reset it?
+Select Forgot password on the sign-in page and follow the reset link sent to your registered email address.
+
+[FAQ-0012] My password reset link has expired. What should I do?
+Request a new reset link from the sign-in page. For security, only the most recently issued link will work.
+
+[FAQ-0017] I received a login alert that I do not recognize.
+Change your password immediately, sign out all devices, enable two-factor authentication, and contact support if account details were changed.",False,,,,
+R-002,How do I stop an order that has not been packed?,in_domain,Wait for the order to be delivered.,FAQ-0053|FAQ-0080|FAQ-0103,"[FAQ-0053] Can I cancel my order?
+You can cancel from Order history until packing begins. After that point, wait for delivery and use the return process.
+
+[FAQ-0080] One item is missing from my delivery.
+Check whether the order was split into multiple shipments. If all packages arrived, contact support with the missing item details.
+
+[FAQ-0103] How can I pause upcoming subscription deliveries?
+Open the subscription and select Pause. Choose an available restart date before confirming.",False,,,,
+R-003,The courier marked my parcel delivered but I cannot find it.,in_domain,I can't find it.,FAQ-0074|FAQ-0071|FAQ-0080,"[FAQ-0074] Tracking says delivered, but I cannot find the package.
+Check safe locations and ask household members or neighbors. If it remains missing after 24 hours, contact support.
+
+[FAQ-0071] Where can I track my package?
+Open the shipped order and select Track package, or use the carrier link in the dispatch email.
+
+[FAQ-0080] One item is missing from my delivery.
+Check whether the order was split into multiple shipments. If all packages arrived, contact support with the missing item details.",False,,,,
+R-004,Can I send an unused item back after two weeks?,in_domain,Can I send an unused item back after two weeks?,FAQ-0081|FAQ-0086|FAQ-0040,"[FAQ-0081] How long do I have to return an item?
+Most unused items can be returned within 30 days of delivery. Final-sale and personalized products are excluded.
+
+[FAQ-0086] Can I return a personalized item?
+Personalized items are not returnable for preference changes, but support will help if the item is defective or made incorrectly.
+
+[FAQ-0040] Can you resend my purchase receipt?
+Open the order in Order history and select Resend receipt. Guest customers can use the link in their order-confirmation email.",False,,,,
+R-005,When should an approved refund appear on my card?,in_domain,Allow five business days plus your bank's posting time. Then contact support with the refund confirmation and order number.,FAQ-0094|FAQ-0099|FAQ-0091,"[FAQ-0094] My approved refund has not appeared.
+Allow five business days plus your bank's posting time. Then contact support with the refund confirmation and order number.
+
+[FAQ-0099] Will I receive confirmation when a refund is issued?
+Yes. A refund confirmation is emailed when the payment provider receives the refund instruction.
+
+[FAQ-0091] How long does a refund take?
+After the return is approved, refunds are sent to the original payment method within five business days; banks may take longer to post them.",False,,,,
+R-006,Please cancel all future subscription deliveries.,in_domain,Please cancel all future subscription deliveries.,FAQ-0103|FAQ-0102|FAQ-0104,"[FAQ-0103] How can I pause upcoming subscription deliveries?
+Open the subscription and select Pause. Choose an available restart date before confirming.
+
+[FAQ-0102] Can I cancel my subscription?
+Open Subscriptions, select the plan, and choose Cancel before the next order begins processing.
+
+[FAQ-0104] Can I skip only the next subscription shipment?
+Yes. Select Skip next delivery before its processing date; later deliveries remain scheduled.",False,,,,
+R-007,Could I transfer my reward points to my sister?,in_domain,"No. Points cannot be transferred, sold, or combined between customer accounts.",FAQ-0169|FAQ-0168|FAQ-0164,"[FAQ-0169] Can reward points be exchanged for cash?
+No. Points have no cash value and can only be redeemed through eligible Northstar Shop transactions.
+
+[FAQ-0168] Can I transfer points to another account?
+Reward points cannot be transferred, sold, or combined between customer accounts.
+
+[FAQ-0164] How can I use reward points?
+At checkout, choose an available reward amount before payment. Points cannot reduce the order below the minimum displayed.",False,,,,
+R-008,Someone claiming to be support asked for my password.,in_domain,No.,FAQ-0155|FAQ-0200|FAQ-0153,"[FAQ-0155] Will support ever ask for my password?
+No. Support will never request your password, complete card number, or two-factor authentication code.
+
+[FAQ-0200] Why is support asking me to verify my identity?
+Verification protects account and order information. Support will use approved checks but will never ask for your password or security code.
+
+[FAQ-0153] I think someone accessed my account.
+Reset the password, sign out all devices, enable two-factor authentication, review account details, and contact support immediately.",False,,,,
+R-009,My promotional code is not accepted at checkout.,in_domain,"No, it is not accepted at checkout.",FAQ-0182|FAQ-0181|FAQ-0183,"[FAQ-0182] Why is my promotional code invalid?
+Check its spelling, dates, eligible products, regional restrictions, minimum spend, and whether it has already been used.
+
+[FAQ-0181] Where do I enter a promotional code?
+Enter the code in the Promotion field at checkout and select Apply before submitting payment.
+
+[FAQ-0183] Can I combine two promotional codes?
+Only one promotional code can be used per order unless the offer terms explicitly permit stacking.",False,,,,
+R-010,Where can I check the status of my support ticket?,in_domain,Northstar Shop,FAQ-0193|FAQ-0051|FAQ-0128,"[FAQ-0193] How can I check my support case?
+Open Support cases in your account or use the secure link in the case-confirmation email.
+
+[FAQ-0051] How can I check my order status?
+Sign in and open Order history, or use the tracking link in the confirmation email if you checked out as a guest.
+
+[FAQ-0128] How can I check my warranty claim status?
+Open Support cases and select the claim, or use the status link in the claim-confirmation email.",False,,,,
+R-011,Who won the latest international football tournament?,out_of_domain,I don't have enough information in the support knowledge base to answer that.,,,True,,,,
+R-012,Can you recommend a medicine for my headache?,out_of_domain,I don't have enough information in the support knowledge base to answer that.,,,True,,,,
+R-013,Write a short poem about the moon.,out_of_domain,I don't have enough information in the support knowledge base to answer that.,,,True,,,,
+R-014,What is the weather tomorrow?,out_of_domain,I don't have enough information in the support knowledge base to answer that.,,,True,,,,
+R-015,Which stock should I purchase?,out_of_domain,The Northstar Shop's stock is listed at the bottom of the page.,FAQ-0111|FAQ-0110|FAQ-0112,"[FAQ-0111] How can I tell whether a product is in stock?
+The product page shows current availability. Stock is not reserved until checkout is completed.
+
+[FAQ-0110] What if my subscribed item is out of stock?
+That delivery is delayed or skipped, and we notify you by email. Other active subscriptions are unaffected.
+
+[FAQ-0112] Can you notify me when an item is back in stock?
+Select Notify me on the product page and enter your email. A notification does not reserve the item.",False,,,,

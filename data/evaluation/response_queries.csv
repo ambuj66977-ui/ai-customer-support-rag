@@ -1,0 +1,16 @@
+query_id,query,query_type
+R-001,I forgot my password and need to sign in.,in_domain
+R-002,How do I stop an order that has not been packed?,in_domain
+R-003,The courier marked my parcel delivered but I cannot find it.,in_domain
+R-004,Can I send an unused item back after two weeks?,in_domain
+R-005,When should an approved refund appear on my card?,in_domain
+R-006,Please cancel all future subscription deliveries.,in_domain
+R-007,Could I transfer my reward points to my sister?,in_domain
+R-008,Someone claiming to be support asked for my password.,in_domain
+R-009,My promotional code is not accepted at checkout.,in_domain
+R-010,Where can I check the status of my support ticket?,in_domain
+R-011,Who won the latest international football tournament?,out_of_domain
+R-012,Can you recommend a medicine for my headache?,out_of_domain
+R-013,Write a short poem about the moon.,out_of_domain
+R-014,What is the weather tomorrow?,out_of_domain
+R-015,Which stock should I purchase?,out_of_domain

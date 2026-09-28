@@ -1,0 +1,10 @@
+{
+  "in_domain_queries": 60,
+  "mean_reciprocal_rank_at_5": 0.881111111111111,
+  "min_similarity": 0.35,
+  "out_of_domain_queries": 10,
+  "out_of_domain_rejection_rate": 0.9,
+  "recall_at_1": 0.8333333333333334,
+  "recall_at_3": 0.9166666666666666,
+  "recall_at_5": 0.9666666666666667
+}

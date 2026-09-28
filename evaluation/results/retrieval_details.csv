@@ -1,0 +1,71 @@
+query_id,query,query_type,expected_document_id,expected_rank,top_document_id,top_similarity,retrieved_ids,rejected_by_threshold
+Q-001,What steps do I follow to register for a new account?,in_domain,FAQ-0001,1,FAQ-0001,0.518111,FAQ-0001|FAQ-0005|FAQ-0026|FAQ-0003|FAQ-0018,False
+Q-002,I want to use the shop without signing up. Is that possible?,in_domain,FAQ-0008,3,FAQ-0001,0.520704,FAQ-0001|FAQ-0149|FAQ-0008|FAQ-0157|FAQ-0019,False
+Q-003,Can my two customer profiles be combined into one?,in_domain,FAQ-0010,1,FAQ-0010,0.655737,FAQ-0010|FAQ-0006|FAQ-0056|FAQ-0028|FAQ-0183,False
+Q-004,The password recovery email link no longer works.,in_domain,FAQ-0012,1,FAQ-0012,0.640836,FAQ-0012|FAQ-0011|FAQ-0015|FAQ-0017|FAQ-0003,False
+Q-005,How can I log every device out of my profile?,in_domain,FAQ-0016,1,FAQ-0016,0.675848,FAQ-0016|FAQ-0142|FAQ-0002|FAQ-0015|FAQ-0045,False
+Q-006,A sign-in notification appeared but it wasn't me.,in_domain,FAQ-0017,1,FAQ-0017,0.646791,FAQ-0017|FAQ-0018|FAQ-0153|FAQ-0136|FAQ-0052,False
+Q-007,I need to store another location for deliveries.,in_domain,FAQ-0022,1,FAQ-0022,0.615854,FAQ-0022|FAQ-0071|FAQ-0077|FAQ-0065|FAQ-0087,False
+Q-008,Can I correct the destination after submitting an order?,in_domain,FAQ-0027,1,FAQ-0027,0.651349,FAQ-0027|FAQ-0043|FAQ-0054|FAQ-0053|FAQ-0133,False
+Q-009,Please stop sending me advertising messages.,in_domain,FAQ-0030,2,FAQ-0146,0.530845,FAQ-0146|FAQ-0030|FAQ-0039|FAQ-0152|FAQ-0182,False
+Q-010,Where do I obtain a PDF invoice for my purchase?,in_domain,FAQ-0031,1,FAQ-0031,0.815248,FAQ-0031|FAQ-0032|FAQ-0116|FAQ-0040|FAQ-0071,False
+Q-011,There are two transactions on my card for one purchase.,in_domain,FAQ-0035,0,FAQ-0092,0.520848,FAQ-0092|FAQ-0178|FAQ-0173|FAQ-0096|FAQ-0049,False
+Q-012,What money will checkout charge me in?,in_domain,FAQ-0038,1,FAQ-0038,0.537037,FAQ-0038|FAQ-0041|FAQ-0047|FAQ-0083|FAQ-0156,False
+Q-013,Which cards or wallets can I pay with?,in_domain,FAQ-0041,1,FAQ-0041,0.546017,FAQ-0041|FAQ-0171|FAQ-0174|FAQ-0180|FAQ-0173,False
+Q-014,Can I pay part on one card and the rest on another?,in_domain,FAQ-0046,1,FAQ-0046,0.596649,FAQ-0046|FAQ-0092|FAQ-0178|FAQ-0180|FAQ-0043,False
+Q-015,Do you allow payment when the parcel arrives?,in_domain,FAQ-0047,1,FAQ-0047,0.619691,FAQ-0047|FAQ-0043|FAQ-0065|FAQ-0083|FAQ-0078,False
+Q-016,I want to stop an order before it is sent.,in_domain,FAQ-0053,1,FAQ-0053,0.711784,FAQ-0053|FAQ-0103|FAQ-0104|FAQ-0051|FAQ-0027,False
+Q-017,Can you put two purchases into the same shipment?,in_domain,FAQ-0056,1,FAQ-0056,0.663912,FAQ-0056|FAQ-0178|FAQ-0054|FAQ-0087|FAQ-0046,False
+Q-018,What does it mean when my item is on backorder?,in_domain,FAQ-0059,1,FAQ-0059,0.825798,FAQ-0059|FAQ-0166|FAQ-0058|FAQ-0095|FAQ-0079,False
+Q-019,What delivery services can I choose from?,in_domain,FAQ-0061,1,FAQ-0061,0.63421,FAQ-0061|FAQ-0022|FAQ-0062|FAQ-0077|FAQ-0047,False
+Q-020,Can you deliver my purchase to a post office box?,in_domain,FAQ-0065,1,FAQ-0065,0.778,FAQ-0065|FAQ-0077|FAQ-0047|FAQ-0022|FAQ-0062,False
+Q-021,My purchase is being sent as several parcels. Why?,in_domain,FAQ-0068,1,FAQ-0068,0.640868,FAQ-0068|FAQ-0080|FAQ-0087|FAQ-0078|FAQ-0079,False
+Q-022,The courier status has not changed since dispatch.,in_domain,FAQ-0072,2,FAQ-0066,0.471958,FAQ-0066|FAQ-0072|FAQ-0067|FAQ-0074|FAQ-0051,False
+Q-023,The carrier says it arrived but there is nothing here.,in_domain,FAQ-0074,1,FAQ-0074,0.534241,FAQ-0074|FAQ-0080|FAQ-0069|FAQ-0064|FAQ-0047,False
+Q-024,A product was absent from the box I received.,in_domain,FAQ-0080,2,FAQ-0079,0.593832,FAQ-0079|FAQ-0080|FAQ-0084|FAQ-0134|FAQ-0069,False
+Q-025,What is the deadline for sending something back?,in_domain,FAQ-0081,1,FAQ-0081,0.654106,FAQ-0081|FAQ-0095|FAQ-0091|FAQ-0070|FAQ-0066,False
+Q-026,Will I be charged for the return label?,in_domain,FAQ-0083,5,FAQ-0089,0.597967,FAQ-0089|FAQ-0097|FAQ-0099|FAQ-0188|FAQ-0083,False
+Q-027,I need a different size. Can you swap the item?,in_domain,FAQ-0090,1,FAQ-0090,0.755361,FAQ-0090|FAQ-0086|FAQ-0060|FAQ-0055|FAQ-0176,False
+Q-028,When should the money from my return reach me?,in_domain,FAQ-0091,4,FAQ-0082,0.635418,FAQ-0082|FAQ-0081|FAQ-0095|FAQ-0091|FAQ-0099,False
+Q-029,Can you send the refund to another bank card?,in_domain,FAQ-0092,1,FAQ-0092,0.850473,FAQ-0092|FAQ-0177|FAQ-0096|FAQ-0100|FAQ-0176,False
+Q-030,My reimbursement was approved but is still missing.,in_domain,FAQ-0094,1,FAQ-0094,0.730998,FAQ-0094|FAQ-0095|FAQ-0048|FAQ-0099|FAQ-0052,False
+Q-031,I don't want any more recurring deliveries.,in_domain,FAQ-0102,0,FAQ-0103,0.610648,FAQ-0103|FAQ-0104|FAQ-0022|FAQ-0067|FAQ-0105,False
+Q-032,Can I miss the upcoming recurring shipment only?,in_domain,FAQ-0104,1,FAQ-0104,0.72187,FAQ-0104|FAQ-0112|FAQ-0103|FAQ-0070|FAQ-0067,False
+Q-033,The recurring order card payment did not go through.,in_domain,FAQ-0107,3,FAQ-0095,0.522431,FAQ-0095|FAQ-0052|FAQ-0107|FAQ-0096|FAQ-0092,False
+Q-034,Can I receive an alert when this product returns?,in_domain,FAQ-0112,1,FAQ-0112,0.618806,FAQ-0112|FAQ-0099|FAQ-0085|FAQ-0040|FAQ-0081,False
+Q-035,How do I know if this accessory works with my model?,in_domain,FAQ-0114,1,FAQ-0114,0.753266,FAQ-0114|FAQ-0193|FAQ-0119|FAQ-0116|FAQ-0191,False
+Q-036,What exactly comes inside this bundle?,in_domain,FAQ-0119,1,FAQ-0119,0.860129,FAQ-0119|FAQ-0071|FAQ-0058|FAQ-0141|FAQ-0080,False
+Q-037,Where is the warranty duration shown?,in_domain,FAQ-0121,1,FAQ-0121,0.748934,FAQ-0121|FAQ-0128|FAQ-0122|FAQ-0126|FAQ-0123,False
+Q-038,Is damage from dropping a product covered?,in_domain,FAQ-0124,1,FAQ-0124,0.543849,FAQ-0124|FAQ-0075|FAQ-0126|FAQ-0084|FAQ-0129,False
+Q-039,How do I see progress on a warranty request?,in_domain,FAQ-0128,1,FAQ-0128,0.837839,FAQ-0128|FAQ-0122|FAQ-0051|FAQ-0123|FAQ-0193,False
+Q-040,The mobile application crashes before it opens.,in_domain,FAQ-0131,1,FAQ-0131,0.463659,FAQ-0131|FAQ-0015|FAQ-0132|FAQ-0136|FAQ-0135,False
+Q-041,My shopping cart contents vanished.,in_domain,FAQ-0134,1,FAQ-0134,0.80303,FAQ-0134|FAQ-0080|FAQ-0176|FAQ-0081|FAQ-0071,False
+Q-042,The evidence photo will not attach to my case.,in_domain,FAQ-0139,1,FAQ-0139,0.623851,FAQ-0139|FAQ-0198|FAQ-0195|FAQ-0193|FAQ-0194,False
+Q-043,I want Northstar to erase my personal information.,in_domain,FAQ-0142,1,FAQ-0142,0.576542,FAQ-0142|FAQ-0141|FAQ-0001|FAQ-0150|FAQ-0002,False
+Q-044,Where are the controls for non-essential cookies?,in_domain,FAQ-0145,1,FAQ-0145,0.675564,FAQ-0145|FAQ-0156|FAQ-0137|FAQ-0045|FAQ-0023,False
+Q-045,Does the company give customer information to vendors?,in_domain,FAQ-0150,1,FAQ-0150,0.524029,FAQ-0150|FAQ-0158|FAQ-0141|FAQ-0197|FAQ-0192,False
+Q-046,How can I tell if an email claiming to be from you is fraudulent?,in_domain,FAQ-0151,1,FAQ-0151,0.61643,FAQ-0151|FAQ-0152|FAQ-0146|FAQ-0052|FAQ-0158,False
+Q-047,Would an employee ever need my account password?,in_domain,FAQ-0155,1,FAQ-0155,0.633299,FAQ-0155|FAQ-0020|FAQ-0008|FAQ-0006|FAQ-0005,False
+Q-048,A caller says they need my login code for a reimbursement.,in_domain,FAQ-0159,1,FAQ-0159,0.681456,FAQ-0159|FAQ-0018|FAQ-0155|FAQ-0017|FAQ-0181,False
+Q-049,When will points from my purchase become usable?,in_domain,FAQ-0163,4,FAQ-0166,0.611933,FAQ-0166|FAQ-0165|FAQ-0167|FAQ-0163|FAQ-0169,False
+Q-050,What happens to earned points if I send an item back?,in_domain,FAQ-0166,1,FAQ-0166,0.67789,FAQ-0166|FAQ-0162|FAQ-0167|FAQ-0165|FAQ-0169,False
+Q-051,May I give my points to a family member's profile?,in_domain,FAQ-0168,1,FAQ-0168,0.429702,FAQ-0168|FAQ-0028|FAQ-0148|FAQ-0164|FAQ-0169,False
+Q-052,How can I see how much value remains on a gift voucher?,in_domain,FAQ-0173,1,FAQ-0173,0.621973,FAQ-0173|FAQ-0096|FAQ-0175|FAQ-0174|FAQ-0176,False
+Q-053,Is it possible to pay using several gift cards?,in_domain,FAQ-0178,1,FAQ-0178,0.823366,FAQ-0178|FAQ-0180|FAQ-0174|FAQ-0177|FAQ-0176,False
+Q-054,Will a gift voucher from another currency work here?,in_domain,FAQ-0180,1,FAQ-0180,0.755933,FAQ-0180|FAQ-0169|FAQ-0176|FAQ-0038|FAQ-0050,False
+Q-055,Checkout says my coupon cannot be used.,in_domain,FAQ-0182,1,FAQ-0182,0.518622,FAQ-0182|FAQ-0133|FAQ-0179|FAQ-0184|FAQ-0039,False
+Q-056,I forgot the voucher code before ordering. Can it be added now?,in_domain,FAQ-0184,1,FAQ-0184,0.676585,FAQ-0184|FAQ-0181|FAQ-0183|FAQ-0054|FAQ-0077,False
+Q-057,Do you offer the same lower price as competing stores?,in_domain,FAQ-0189,1,FAQ-0189,0.63814,FAQ-0189|FAQ-0108|FAQ-0098|FAQ-0185|FAQ-0037,False
+Q-058,Where can I view progress on my help request?,in_domain,FAQ-0193,1,FAQ-0193,0.454999,FAQ-0193|FAQ-0198|FAQ-0116|FAQ-0128|FAQ-0051,False
+Q-059,Should I submit another ticket while waiting for a reply?,in_domain,FAQ-0195,1,FAQ-0195,0.431088,FAQ-0195|FAQ-0053|FAQ-0099|FAQ-0104|FAQ-0103,False
+Q-060,Why does the agent need to confirm who I am?,in_domain,FAQ-0200,1,FAQ-0200,0.542831,FAQ-0200|FAQ-0005|FAQ-0078|FAQ-0017|FAQ-0148,False
+Q-061,Who won the latest international football tournament?,out_of_domain,,0,FAQ-0121,0.171038,FAQ-0121|FAQ-0137|FAQ-0073|FAQ-0117|FAQ-0064,True
+Q-062,Can you diagnose the pain in my knee?,out_of_domain,,0,FAQ-0128,0.266678,FAQ-0128|FAQ-0193|FAQ-0051|FAQ-0160|FAQ-0196,True
+Q-063,Write a poem about a sunset over the ocean.,out_of_domain,,0,FAQ-0064,0.1737,FAQ-0064|FAQ-0120|FAQ-0030|FAQ-0199|FAQ-0062,True
+Q-064,What is the capital city of Brazil?,out_of_domain,,0,FAQ-0117,0.254534,FAQ-0117|FAQ-0064|FAQ-0038|FAQ-0141|FAQ-0023,True
+Q-065,Help me calculate my income tax return.,out_of_domain,,0,FAQ-0033,0.604162,FAQ-0033|FAQ-0082|FAQ-0093|FAQ-0094|FAQ-0091,False
+Q-066,What will tomorrow's weather be in Delhi?,out_of_domain,,0,FAQ-0073,0.237,FAQ-0073|FAQ-0185|FAQ-0067|FAQ-0062|FAQ-0038,True
+Q-067,Explain how photosynthesis works.,out_of_domain,,0,FAQ-0109,0.196986,FAQ-0109|FAQ-0116|FAQ-0033|FAQ-0120|FAQ-0188,True
+Q-068,Which shares should I buy this week?,out_of_domain,,0,FAQ-0111,0.346153,FAQ-0111|FAQ-0112|FAQ-0110|FAQ-0061|FAQ-0185,True
+Q-069,Can you translate this paragraph into French?,out_of_domain,,0,FAQ-0029,0.206981,FAQ-0029|FAQ-0079|FAQ-0133|FAQ-0199|FAQ-0075,True
+Q-070,Who should I vote for in the next election?,out_of_domain,,0,FAQ-0137,0.2024,FAQ-0137|FAQ-0029|FAQ-0187|FAQ-0133|FAQ-0038,True

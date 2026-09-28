@@ -1,0 +1,16 @@
+query_id,relevance_0_to_2,groundedness_0_to_2,fallback_correct_0_to_2,reviewer_notes
+R-001,2,2,2,Correct reset steps; extra source wording is unnecessary but supported.
+R-002,0,1,2,Incorrectly recommends waiting for delivery even though cancellation is available before packing.
+R-003,0,0,2,Repeats the problem and provides none of the retrieved safe-location or support steps.
+R-004,0,0,2,Repeats the question instead of stating the 30-day return policy.
+R-005,2,2,2,Directly uses the approved refund timing and escalation guidance.
+R-006,0,0,2,Repeats the request instead of giving the subscription cancellation steps.
+R-007,2,2,2,Correctly states that points cannot be transferred.
+R-008,1,2,2,Correct but incomplete; it should mention that support never requests passwords or security codes.
+R-009,0,0,2,Restates that the code failed and omits all troubleshooting checks.
+R-010,0,0,2,Does not explain where to view the support case.
+R-011,2,2,2,Correctly falls back for an unrelated sports question.
+R-012,2,2,2,Correctly falls back for an unrelated medical question.
+R-013,2,2,2,Correctly falls back for a creative-writing request.
+R-014,2,2,2,Correctly falls back for an unrelated weather question.
+R-015,0,0,0,Incorrectly treats an investment question as a product-stock availability question.

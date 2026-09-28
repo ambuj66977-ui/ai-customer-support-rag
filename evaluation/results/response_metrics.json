@@ -1,0 +1,32 @@
+{
+  "in_domain": {
+    "fallback_correct_0_to_2_mean": 2.0,
+    "fallback_correct_0_to_2_percent_of_max": 100.0,
+    "groundedness_0_to_2_mean": 0.9,
+    "groundedness_0_to_2_percent_of_max": 45.0,
+    "queries": 10,
+    "relevance_0_to_2_mean": 0.7,
+    "relevance_0_to_2_percent_of_max": 35.0
+  },
+  "model": "google/flan-t5-small",
+  "out_of_domain": {
+    "fallback_correct_0_to_2_mean": 1.6,
+    "fallback_correct_0_to_2_percent_of_max": 80.0,
+    "groundedness_0_to_2_mean": 1.6,
+    "groundedness_0_to_2_percent_of_max": 80.0,
+    "queries": 5,
+    "relevance_0_to_2_mean": 1.6,
+    "relevance_0_to_2_percent_of_max": 80.0
+  },
+  "overall": {
+    "fallback_correct_0_to_2_mean": 1.8666666666666667,
+    "fallback_correct_0_to_2_percent_of_max": 93.33333333333333,
+    "groundedness_0_to_2_mean": 1.1333333333333333,
+    "groundedness_0_to_2_percent_of_max": 56.666666666666664,
+    "queries": 15,
+    "relevance_0_to_2_mean": 1.0,
+    "relevance_0_to_2_percent_of_max": 50.0
+  },
+  "review_status": "manually_scored",
+  "rubric": "0=poor, 1=acceptable, 2=strong"
+}
