@@ -210,7 +210,7 @@ Never commit `.env`.
 
 ## Vercel and OpenAI setup
 
-The Vercel application lives in `web/`. It does not ship FAISS, PyTorch, or the local embedding model. Instead, a one-time setup script groups the 2,000 labeled phrasings into 200 canonical FAQ files and uploads them to an OpenAI hosted vector store. At request time, the server searches that store, sends approved source text to the Responses API, and returns the answer with visible supporting FAQs.
+The Vercel application lives in `web/`. It does not ship FAISS, PyTorch, or the local embedding model. Instead, a one-time setup script groups the 2,000 labeled phrasings into 200 canonical FAQ files and uploads them to an OpenAI hosted vector store. At request time, a structured query-planning call maps short customer wording to a known FAQ title from `web/lib/faq-catalog.json`. That catalog contains no answers. The server then searches the hosted store, verifies the selected policy was retrieved, sends approved source text to the Responses API, and returns the answer with visible supporting FAQs. Questions outside the title catalog are rejected with the insufficient-context fallback.
 
 1. Create the local secret file:
 
@@ -230,7 +230,7 @@ The Vercel application lives in `web/`. It does not ship FAISS, PyTorch, or the 
    python scripts/setup_openai_vector_store.py
    ```
 
-4. Copy the printed `OPENAI_VECTOR_STORE_ID` into `web/.env.local`, then test locally:
+4. The script saves `OPENAI_VECTOR_STORE_ID` into the private `web/.env.local` file automatically. Test locally:
 
    ```bash
    cd web
@@ -240,7 +240,7 @@ The Vercel application lives in `web/`. It does not ship FAISS, PyTorch, or the 
 
 5. In Vercel, set the project Root Directory to `web` and add `OPENAI_API_KEY` and `OPENAI_VECTOR_STORE_ID` under Project Settings → Environment Variables. `OPENAI_MODEL=gpt-6-luna` and `MIN_SEARCH_SCORE=0.25` are optional overrides.
 
-Both `.env` and `web/.env.local` are ignored by Git. Never paste the key into source code, commit it, put it in a `NEXT_PUBLIC_` variable, or send it through the browser.
+Both `.env` and `web/.env.local` are ignored by Git, and `web/.vercelignore` excludes private environment files from deployment source uploads. The setup script restricts the local file to its owner. On Vercel, store the API key as a Secret; it is used only by the server route. Error logs contain status codes and request IDs rather than raw SDK exceptions. Never paste the key into source code, commit it, put it in a `NEXT_PUBLIC_` variable, or send it through the browser.
 
 ## Running the application
 

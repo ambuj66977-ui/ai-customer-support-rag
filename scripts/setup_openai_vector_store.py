@@ -13,8 +13,8 @@ import tempfile
 from collections import defaultdict
 from pathlib import Path
 
-from openai import OpenAI
-from dotenv import load_dotenv
+from openai import OpenAI, OpenAIError
+from dotenv import load_dotenv, set_key
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
@@ -81,7 +81,18 @@ def main() -> None:
     print("OpenAI knowledge base is ready.")
     print(f"Uploaded canonical FAQs: {len(grouped)}")
     print(f"OPENAI_VECTOR_STORE_ID={vector_store.id}")
+    private_env = PROJECT_ROOT / "web" / ".env.local"
+    set_key(private_env, "OPENAI_VECTOR_STORE_ID", vector_store.id)
+    private_env.chmod(0o600)
+    print("Saved the vector-store ID in the private web/.env.local file.")
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except OpenAIError as error:
+        # Authentication errors can contain a fragment of the submitted key.
+        # Keep setup logs useful without printing credential-bearing messages.
+        status = getattr(error, "status_code", None)
+        print(f"OpenAI setup failed: {type(error).__name__} (HTTP {status}).", file=sys.stderr)
+        raise SystemExit(1) from None

@@ -1,6 +1,7 @@
 import OpenAI from "openai";
 
 import { parseSearchResult } from "../../../lib/sources.js";
+import { planSearch } from "../../../lib/search-plan.js";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -33,12 +34,16 @@ export async function POST(request) {
   }
 
   try {
-    const openai = new OpenAI({ apiKey, timeout: 20000, maxRetries: 0 });
+    const signal = AbortSignal.timeout(55000);
+    const openai = new OpenAI({ apiKey, timeout: 45000, maxRetries: 1 });
+    const model = process.env.OPENAI_MODEL || "gpt-6-luna";
+    const plan = await planSearch(openai, question, model, { signal });
+    if (!plan) return json({ answer: FALLBACK, sources: [], usedFallback: true });
     const search = await openai.vectorStores.search(vectorStoreId, {
-      query: question,
+      query: plan.query,
       max_num_results: 9,
-      rewrite_query: true,
-    });
+      rewrite_query: false,
+    }, { signal });
     const threshold = Number(process.env.MIN_SEARCH_SCORE || 0.25);
     if (!Number.isFinite(threshold) || threshold < 0 || threshold > 1) {
       return json({ error: "The assistant's search configuration needs attention." }, 503);
@@ -48,8 +53,11 @@ export async function POST(request) {
       if (!source || !Number.isFinite(source.similarity) || source.similarity < threshold || seenIds.has(source.documentId)) return false;
       seenIds.add(source.documentId);
       return true;
-    }).slice(0, 3);
-    if (!sources.length) {
+    });
+    const primaryIndex = sources.findIndex((source) => source.documentId === plan.canonicalId);
+    if (primaryIndex >= 0) sources.unshift(...sources.splice(primaryIndex, 1));
+    sources.splice(3);
+    if (primaryIndex < 0 || !sources.length) {
       return json({ answer: FALLBACK, sources: [], usedFallback: true });
     }
 
@@ -62,7 +70,7 @@ export async function POST(request) {
     let answer = sources[0].answer;
     try {
       const response = await openai.responses.create({
-        model: process.env.OPENAI_MODEL || "gpt-6-luna",
+        model,
         instructions: [
           "You are Northstar Shop's customer-support assistant.",
           "Answer only from the supplied approved support sources.",
@@ -76,15 +84,25 @@ export async function POST(request) {
         reasoning: { effort: "none" },
         max_output_tokens: 300,
         store: false,
-      });
+      }, { signal });
       if (response.output_text?.trim()) answer = response.output_text.trim();
     } catch (error) {
-      console.error("OpenAI generation failed; returning the top approved answer", error);
+      console.error("OpenAI generation failed; returning the top approved answer", {
+        name: error?.name,
+        status: error?.status,
+        code: error?.code,
+        requestId: error?.request_id,
+      });
     }
 
-    return json({ answer, sources, usedFallback: false });
+    return json({ answer, sources: answer === FALLBACK ? [] : sources, usedFallback: answer === FALLBACK });
   } catch (error) {
-    console.error("Northstar support request failed", error);
+    console.error("Northstar support request failed", {
+      name: error?.name,
+      status: error?.status,
+      code: error?.code,
+      requestId: error?.request_id,
+    });
     return json({ error: "The assistant could not complete that request. Please try again." }, 502);
   }
 }

@@ -1,0 +1,1002 @@
+[
+  {
+    "id": "FAQ-0001",
+    "category": "account",
+    "question": "How do I create a Northstar Shop account?"
+  },
+  {
+    "id": "FAQ-0002",
+    "category": "account",
+    "question": "Can I permanently close my account?"
+  },
+  {
+    "id": "FAQ-0003",
+    "category": "account",
+    "question": "Where can I change the email on my account?"
+  },
+  {
+    "id": "FAQ-0004",
+    "category": "account",
+    "question": "How can I update my phone number?"
+  },
+  {
+    "id": "FAQ-0005",
+    "category": "account",
+    "question": "Why do I need to verify my account?"
+  },
+  {
+    "id": "FAQ-0006",
+    "category": "account",
+    "question": "May I have more than one customer account?"
+  },
+  {
+    "id": "FAQ-0007",
+    "category": "account",
+    "question": "Can a closed account be reactivated?"
+  },
+  {
+    "id": "FAQ-0008",
+    "category": "account",
+    "question": "Do I need an account to place an order?"
+  },
+  {
+    "id": "FAQ-0009",
+    "category": "account",
+    "question": "How can I download a copy of my account data?"
+  },
+  {
+    "id": "FAQ-0010",
+    "category": "account",
+    "question": "Can support merge two accounts for me?"
+  },
+  {
+    "id": "FAQ-0011",
+    "category": "authentication",
+    "question": "I forgot my password. How do I reset it?"
+  },
+  {
+    "id": "FAQ-0012",
+    "category": "authentication",
+    "question": "My password reset link has expired. What should I do?"
+  },
+  {
+    "id": "FAQ-0013",
+    "category": "authentication",
+    "question": "Why is my account temporarily locked?"
+  },
+  {
+    "id": "FAQ-0014",
+    "category": "authentication",
+    "question": "How do I turn on two-factor authentication?"
+  },
+  {
+    "id": "FAQ-0015",
+    "category": "authentication",
+    "question": "I lost the phone used for two-factor authentication."
+  },
+  {
+    "id": "FAQ-0016",
+    "category": "authentication",
+    "question": "Can I sign out of every device at once?"
+  },
+  {
+    "id": "FAQ-0017",
+    "category": "authentication",
+    "question": "I received a login alert that I do not recognize."
+  },
+  {
+    "id": "FAQ-0018",
+    "category": "authentication",
+    "question": "Why has my sign-in verification code not arrived?"
+  },
+  {
+    "id": "FAQ-0019",
+    "category": "authentication",
+    "question": "Can I sign in with a social media account?"
+  },
+  {
+    "id": "FAQ-0020",
+    "category": "authentication",
+    "question": "What are the password requirements?"
+  },
+  {
+    "id": "FAQ-0021",
+    "category": "profile",
+    "question": "How do I correct the name on my profile?"
+  },
+  {
+    "id": "FAQ-0022",
+    "category": "profile",
+    "question": "How can I add a new delivery address?"
+  },
+  {
+    "id": "FAQ-0023",
+    "category": "profile",
+    "question": "Where can I edit a saved address?"
+  },
+  {
+    "id": "FAQ-0024",
+    "category": "profile",
+    "question": "How do I remove an old address?"
+  },
+  {
+    "id": "FAQ-0025",
+    "category": "profile",
+    "question": "Can I choose a default shipping address?"
+  },
+  {
+    "id": "FAQ-0026",
+    "category": "profile",
+    "question": "How do I update my billing address?"
+  },
+  {
+    "id": "FAQ-0027",
+    "category": "profile",
+    "question": "Can I change the address after placing an order?"
+  },
+  {
+    "id": "FAQ-0028",
+    "category": "profile",
+    "question": "Can I add a profile photo?"
+  },
+  {
+    "id": "FAQ-0029",
+    "category": "profile",
+    "question": "How do I change my preferred language?"
+  },
+  {
+    "id": "FAQ-0030",
+    "category": "profile",
+    "question": "Where can I manage marketing messages?"
+  },
+  {
+    "id": "FAQ-0031",
+    "category": "billing",
+    "question": "Where can I download an invoice?"
+  },
+  {
+    "id": "FAQ-0032",
+    "category": "billing",
+    "question": "Can the name on an invoice be changed?"
+  },
+  {
+    "id": "FAQ-0033",
+    "category": "billing",
+    "question": "How is sales tax calculated?"
+  },
+  {
+    "id": "FAQ-0034",
+    "category": "billing",
+    "question": "Does Northstar Shop support tax-exempt purchases?"
+  },
+  {
+    "id": "FAQ-0035",
+    "category": "billing",
+    "question": "Why do I see two charges for one order?"
+  },
+  {
+    "id": "FAQ-0036",
+    "category": "billing",
+    "question": "What does a pending card charge mean?"
+  },
+  {
+    "id": "FAQ-0037",
+    "category": "billing",
+    "question": "Why did the price change before I checked out?"
+  },
+  {
+    "id": "FAQ-0038",
+    "category": "billing",
+    "question": "Which currency will I be charged in?"
+  },
+  {
+    "id": "FAQ-0039",
+    "category": "billing",
+    "question": "My billing address is being rejected."
+  },
+  {
+    "id": "FAQ-0040",
+    "category": "billing",
+    "question": "Can you resend my purchase receipt?"
+  },
+  {
+    "id": "FAQ-0041",
+    "category": "payments",
+    "question": "What payment methods do you accept?"
+  },
+  {
+    "id": "FAQ-0042",
+    "category": "payments",
+    "question": "Why was my card declined?"
+  },
+  {
+    "id": "FAQ-0043",
+    "category": "payments",
+    "question": "Can I change payment after placing an order?"
+  },
+  {
+    "id": "FAQ-0044",
+    "category": "payments",
+    "question": "How do I save a card for future orders?"
+  },
+  {
+    "id": "FAQ-0045",
+    "category": "payments",
+    "question": "Where can I remove a saved card?"
+  },
+  {
+    "id": "FAQ-0046",
+    "category": "payments",
+    "question": "Can I split an order between two cards?"
+  },
+  {
+    "id": "FAQ-0047",
+    "category": "payments",
+    "question": "Is cash on delivery available?"
+  },
+  {
+    "id": "FAQ-0048",
+    "category": "payments",
+    "question": "How can I retry a failed payment?"
+  },
+  {
+    "id": "FAQ-0049",
+    "category": "payments",
+    "question": "Is my card information secure?"
+  },
+  {
+    "id": "FAQ-0050",
+    "category": "payments",
+    "question": "Can I use a card issued in another country?"
+  },
+  {
+    "id": "FAQ-0051",
+    "category": "orders",
+    "question": "How can I check my order status?"
+  },
+  {
+    "id": "FAQ-0052",
+    "category": "orders",
+    "question": "I did not receive an order-confirmation email."
+  },
+  {
+    "id": "FAQ-0053",
+    "category": "orders",
+    "question": "Can I cancel my order?"
+  },
+  {
+    "id": "FAQ-0054",
+    "category": "orders",
+    "question": "Can I add an item to an order I already placed?"
+  },
+  {
+    "id": "FAQ-0055",
+    "category": "orders",
+    "question": "Can one item be removed from my order?"
+  },
+  {
+    "id": "FAQ-0056",
+    "category": "orders",
+    "question": "Can two separate orders be combined?"
+  },
+  {
+    "id": "FAQ-0057",
+    "category": "orders",
+    "question": "How do I find an order placed as a guest?"
+  },
+  {
+    "id": "FAQ-0058",
+    "category": "orders",
+    "question": "How do preorders work?"
+  },
+  {
+    "id": "FAQ-0059",
+    "category": "orders",
+    "question": "What does backordered mean?"
+  },
+  {
+    "id": "FAQ-0060",
+    "category": "orders",
+    "question": "Why can I not order more units of an item?"
+  },
+  {
+    "id": "FAQ-0061",
+    "category": "shipping",
+    "question": "Which shipping options are available?"
+  },
+  {
+    "id": "FAQ-0062",
+    "category": "shipping",
+    "question": "How much will shipping cost?"
+  },
+  {
+    "id": "FAQ-0063",
+    "category": "shipping",
+    "question": "When do I qualify for free shipping?"
+  },
+  {
+    "id": "FAQ-0064",
+    "category": "shipping",
+    "question": "Do you ship internationally?"
+  },
+  {
+    "id": "FAQ-0065",
+    "category": "shipping",
+    "question": "Can my order be delivered to a PO box?"
+  },
+  {
+    "id": "FAQ-0066",
+    "category": "shipping",
+    "question": "How long does it take to dispatch an order?"
+  },
+  {
+    "id": "FAQ-0067",
+    "category": "shipping",
+    "question": "Are orders shipped on weekends?"
+  },
+  {
+    "id": "FAQ-0068",
+    "category": "shipping",
+    "question": "Why is my order arriving in multiple packages?"
+  },
+  {
+    "id": "FAQ-0069",
+    "category": "shipping",
+    "question": "Why is expedited shipping unavailable for this product?"
+  },
+  {
+    "id": "FAQ-0070",
+    "category": "shipping",
+    "question": "Is the delivery date guaranteed?"
+  },
+  {
+    "id": "FAQ-0071",
+    "category": "delivery",
+    "question": "Where can I track my package?"
+  },
+  {
+    "id": "FAQ-0072",
+    "category": "delivery",
+    "question": "Why has tracking not updated?"
+  },
+  {
+    "id": "FAQ-0073",
+    "category": "delivery",
+    "question": "My order is later than the estimated date."
+  },
+  {
+    "id": "FAQ-0074",
+    "category": "delivery",
+    "question": "Tracking says delivered, but I cannot find the package."
+  },
+  {
+    "id": "FAQ-0075",
+    "category": "delivery",
+    "question": "The parcel arrived visibly damaged."
+  },
+  {
+    "id": "FAQ-0076",
+    "category": "delivery",
+    "question": "What happens after a failed delivery attempt?"
+  },
+  {
+    "id": "FAQ-0077",
+    "category": "delivery",
+    "question": "Can I add delivery instructions?"
+  },
+  {
+    "id": "FAQ-0078",
+    "category": "delivery",
+    "question": "Why does my delivery require a signature?"
+  },
+  {
+    "id": "FAQ-0079",
+    "category": "delivery",
+    "question": "I received an item I did not order."
+  },
+  {
+    "id": "FAQ-0080",
+    "category": "delivery",
+    "question": "One item is missing from my delivery."
+  },
+  {
+    "id": "FAQ-0081",
+    "category": "returns",
+    "question": "How long do I have to return an item?"
+  },
+  {
+    "id": "FAQ-0082",
+    "category": "returns",
+    "question": "How do I start a return?"
+  },
+  {
+    "id": "FAQ-0083",
+    "category": "returns",
+    "question": "Who pays for return shipping?"
+  },
+  {
+    "id": "FAQ-0084",
+    "category": "returns",
+    "question": "What condition must a returned product be in?"
+  },
+  {
+    "id": "FAQ-0085",
+    "category": "returns",
+    "question": "Can final-sale products be returned?"
+  },
+  {
+    "id": "FAQ-0086",
+    "category": "returns",
+    "question": "Can I return a personalized item?"
+  },
+  {
+    "id": "FAQ-0087",
+    "category": "returns",
+    "question": "Can I return several items in one parcel?"
+  },
+  {
+    "id": "FAQ-0088",
+    "category": "returns",
+    "question": "How do I return a guest order?"
+  },
+  {
+    "id": "FAQ-0089",
+    "category": "returns",
+    "question": "I cannot find my return label."
+  },
+  {
+    "id": "FAQ-0090",
+    "category": "returns",
+    "question": "Can I exchange an item for another size?"
+  },
+  {
+    "id": "FAQ-0091",
+    "category": "refunds",
+    "question": "How long does a refund take?"
+  },
+  {
+    "id": "FAQ-0092",
+    "category": "refunds",
+    "question": "Can my refund go to a different card?"
+  },
+  {
+    "id": "FAQ-0093",
+    "category": "refunds",
+    "question": "Why was my refund smaller than the order total?"
+  },
+  {
+    "id": "FAQ-0094",
+    "category": "refunds",
+    "question": "My approved refund has not appeared."
+  },
+  {
+    "id": "FAQ-0095",
+    "category": "refunds",
+    "question": "When will I get money back for a cancelled order?"
+  },
+  {
+    "id": "FAQ-0096",
+    "category": "refunds",
+    "question": "How are gift-card purchases refunded?"
+  },
+  {
+    "id": "FAQ-0097",
+    "category": "refunds",
+    "question": "Is the original delivery charge refundable?"
+  },
+  {
+    "id": "FAQ-0098",
+    "category": "refunds",
+    "question": "Can I get a refund if the price drops later?"
+  },
+  {
+    "id": "FAQ-0099",
+    "category": "refunds",
+    "question": "Will I receive confirmation when a refund is issued?"
+  },
+  {
+    "id": "FAQ-0100",
+    "category": "refunds",
+    "question": "Can an online purchase be refunded in cash?"
+  },
+  {
+    "id": "FAQ-0101",
+    "category": "subscriptions",
+    "question": "How do I start a product subscription?"
+  },
+  {
+    "id": "FAQ-0102",
+    "category": "subscriptions",
+    "question": "Can I cancel my subscription?"
+  },
+  {
+    "id": "FAQ-0103",
+    "category": "subscriptions",
+    "question": "How can I pause upcoming subscription deliveries?"
+  },
+  {
+    "id": "FAQ-0104",
+    "category": "subscriptions",
+    "question": "Can I skip only the next subscription shipment?"
+  },
+  {
+    "id": "FAQ-0105",
+    "category": "subscriptions",
+    "question": "How do I change how often my subscription arrives?"
+  },
+  {
+    "id": "FAQ-0106",
+    "category": "subscriptions",
+    "question": "Can I update the address for a subscription?"
+  },
+  {
+    "id": "FAQ-0107",
+    "category": "subscriptions",
+    "question": "What happens if a subscription payment fails?"
+  },
+  {
+    "id": "FAQ-0108",
+    "category": "subscriptions",
+    "question": "Will my subscription price always stay the same?"
+  },
+  {
+    "id": "FAQ-0109",
+    "category": "subscriptions",
+    "question": "How is the subscription discount applied?"
+  },
+  {
+    "id": "FAQ-0110",
+    "category": "subscriptions",
+    "question": "What if my subscribed item is out of stock?"
+  },
+  {
+    "id": "FAQ-0111",
+    "category": "products",
+    "question": "How can I tell whether a product is in stock?"
+  },
+  {
+    "id": "FAQ-0112",
+    "category": "products",
+    "question": "Can you notify me when an item is back in stock?"
+  },
+  {
+    "id": "FAQ-0113",
+    "category": "products",
+    "question": "Where can I find a product's dimensions?"
+  },
+  {
+    "id": "FAQ-0114",
+    "category": "products",
+    "question": "How do I check whether an accessory is compatible?"
+  },
+  {
+    "id": "FAQ-0115",
+    "category": "products",
+    "question": "Why does the product color look different in person?"
+  },
+  {
+    "id": "FAQ-0116",
+    "category": "products",
+    "question": "Where can I download the product manual?"
+  },
+  {
+    "id": "FAQ-0117",
+    "category": "products",
+    "question": "Where can I find a product's country of origin?"
+  },
+  {
+    "id": "FAQ-0118",
+    "category": "products",
+    "question": "Why am I unable to buy an age-restricted product?"
+  },
+  {
+    "id": "FAQ-0119",
+    "category": "products",
+    "question": "What is included in a product bundle?"
+  },
+  {
+    "id": "FAQ-0120",
+    "category": "products",
+    "question": "How can I write a product review?"
+  },
+  {
+    "id": "FAQ-0121",
+    "category": "warranty",
+    "question": "How long is the product warranty?"
+  },
+  {
+    "id": "FAQ-0122",
+    "category": "warranty",
+    "question": "How do I make a warranty claim?"
+  },
+  {
+    "id": "FAQ-0123",
+    "category": "warranty",
+    "question": "Do I need proof of purchase for warranty service?"
+  },
+  {
+    "id": "FAQ-0124",
+    "category": "warranty",
+    "question": "Does the standard warranty cover accidental damage?"
+  },
+  {
+    "id": "FAQ-0125",
+    "category": "warranty",
+    "question": "Who pays shipping for a warranty claim?"
+  },
+  {
+    "id": "FAQ-0126",
+    "category": "warranty",
+    "question": "Is a replacement product covered by warranty?"
+  },
+  {
+    "id": "FAQ-0127",
+    "category": "warranty",
+    "question": "Should I contact the manufacturer or Northstar Shop?"
+  },
+  {
+    "id": "FAQ-0128",
+    "category": "warranty",
+    "question": "How can I check my warranty claim status?"
+  },
+  {
+    "id": "FAQ-0129",
+    "category": "warranty",
+    "question": "Will an unauthorized repair affect my warranty?"
+  },
+  {
+    "id": "FAQ-0130",
+    "category": "warranty",
+    "question": "Can a secondhand owner use the warranty?"
+  },
+  {
+    "id": "FAQ-0131",
+    "category": "technical_support",
+    "question": "The Northstar Shop app will not open."
+  },
+  {
+    "id": "FAQ-0132",
+    "category": "technical_support",
+    "question": "Why is the website not loading for me?"
+  },
+  {
+    "id": "FAQ-0133",
+    "category": "technical_support",
+    "question": "Checkout displays an error when I submit my order."
+  },
+  {
+    "id": "FAQ-0134",
+    "category": "technical_support",
+    "question": "Why did the items in my cart disappear?"
+  },
+  {
+    "id": "FAQ-0135",
+    "category": "technical_support",
+    "question": "The page layout looks broken."
+  },
+  {
+    "id": "FAQ-0136",
+    "category": "technical_support",
+    "question": "App notifications are not appearing."
+  },
+  {
+    "id": "FAQ-0137",
+    "category": "technical_support",
+    "question": "Which web browsers are supported?"
+  },
+  {
+    "id": "FAQ-0138",
+    "category": "technical_support",
+    "question": "Should I clear my browser cache to fix an error?"
+  },
+  {
+    "id": "FAQ-0139",
+    "category": "technical_support",
+    "question": "Why can I not upload a photo to my support case?"
+  },
+  {
+    "id": "FAQ-0140",
+    "category": "technical_support",
+    "question": "How can I check whether Northstar Shop is down?"
+  },
+  {
+    "id": "FAQ-0141",
+    "category": "privacy",
+    "question": "What personal data does Northstar Shop collect?"
+  },
+  {
+    "id": "FAQ-0142",
+    "category": "privacy",
+    "question": "How can I ask for my personal data to be deleted?"
+  },
+  {
+    "id": "FAQ-0143",
+    "category": "privacy",
+    "question": "How do I correct inaccurate personal information?"
+  },
+  {
+    "id": "FAQ-0144",
+    "category": "privacy",
+    "question": "Can I request a portable copy of my data?"
+  },
+  {
+    "id": "FAQ-0145",
+    "category": "privacy",
+    "question": "Where can I change my cookie preferences?"
+  },
+  {
+    "id": "FAQ-0146",
+    "category": "privacy",
+    "question": "How do I stop promotional emails?"
+  },
+  {
+    "id": "FAQ-0147",
+    "category": "privacy",
+    "question": "How long is my information retained?"
+  },
+  {
+    "id": "FAQ-0148",
+    "category": "privacy",
+    "question": "Who can answer a privacy question?"
+  },
+  {
+    "id": "FAQ-0149",
+    "category": "privacy",
+    "question": "Can a child create a Northstar Shop account?"
+  },
+  {
+    "id": "FAQ-0150",
+    "category": "privacy",
+    "question": "Does Northstar Shop share data with other companies?"
+  },
+  {
+    "id": "FAQ-0151",
+    "category": "security",
+    "question": "How can I identify a fake Northstar Shop email?"
+  },
+  {
+    "id": "FAQ-0152",
+    "category": "security",
+    "question": "Where should I report a suspicious message?"
+  },
+  {
+    "id": "FAQ-0153",
+    "category": "security",
+    "question": "I think someone accessed my account."
+  },
+  {
+    "id": "FAQ-0154",
+    "category": "security",
+    "question": "Someone asked me to pay outside Northstar Shop."
+  },
+  {
+    "id": "FAQ-0155",
+    "category": "security",
+    "question": "Will support ever ask for my password?"
+  },
+  {
+    "id": "FAQ-0156",
+    "category": "security",
+    "question": "How do I know the checkout page is secure?"
+  },
+  {
+    "id": "FAQ-0157",
+    "category": "security",
+    "question": "Is it safe to shop on a shared computer?"
+  },
+  {
+    "id": "FAQ-0158",
+    "category": "security",
+    "question": "How will customers be told about a data breach?"
+  },
+  {
+    "id": "FAQ-0159",
+    "category": "security",
+    "question": "A caller wants my verification code to issue a refund."
+  },
+  {
+    "id": "FAQ-0160",
+    "category": "security",
+    "question": "How can I report a security vulnerability?"
+  },
+  {
+    "id": "FAQ-0161",
+    "category": "loyalty",
+    "question": "How do I join the rewards program?"
+  },
+  {
+    "id": "FAQ-0162",
+    "category": "loyalty",
+    "question": "How are reward points earned?"
+  },
+  {
+    "id": "FAQ-0163",
+    "category": "loyalty",
+    "question": "Why are my reward points pending?"
+  },
+  {
+    "id": "FAQ-0164",
+    "category": "loyalty",
+    "question": "How can I use reward points?"
+  },
+  {
+    "id": "FAQ-0165",
+    "category": "loyalty",
+    "question": "Do reward points expire?"
+  },
+  {
+    "id": "FAQ-0166",
+    "category": "loyalty",
+    "question": "What happens to points when I return an order?"
+  },
+  {
+    "id": "FAQ-0167",
+    "category": "loyalty",
+    "question": "My purchase did not earn reward points."
+  },
+  {
+    "id": "FAQ-0168",
+    "category": "loyalty",
+    "question": "Can I transfer points to another account?"
+  },
+  {
+    "id": "FAQ-0169",
+    "category": "loyalty",
+    "question": "Can reward points be exchanged for cash?"
+  },
+  {
+    "id": "FAQ-0170",
+    "category": "loyalty",
+    "question": "Does the rewards program have membership tiers?"
+  },
+  {
+    "id": "FAQ-0171",
+    "category": "gift_cards",
+    "question": "Where can I buy a Northstar Shop gift card?"
+  },
+  {
+    "id": "FAQ-0172",
+    "category": "gift_cards",
+    "question": "When will an emailed gift card arrive?"
+  },
+  {
+    "id": "FAQ-0173",
+    "category": "gift_cards",
+    "question": "How do I check a gift card balance?"
+  },
+  {
+    "id": "FAQ-0174",
+    "category": "gift_cards",
+    "question": "How do I use a gift card online?"
+  },
+  {
+    "id": "FAQ-0175",
+    "category": "gift_cards",
+    "question": "Do Northstar Shop gift cards expire?"
+  },
+  {
+    "id": "FAQ-0176",
+    "category": "gift_cards",
+    "question": "Can a lost gift card be replaced?"
+  },
+  {
+    "id": "FAQ-0177",
+    "category": "gift_cards",
+    "question": "Can I return a gift card for a refund?"
+  },
+  {
+    "id": "FAQ-0178",
+    "category": "gift_cards",
+    "question": "Can I use more than one gift card on an order?"
+  },
+  {
+    "id": "FAQ-0179",
+    "category": "gift_cards",
+    "question": "Why is my gift card being rejected?"
+  },
+  {
+    "id": "FAQ-0180",
+    "category": "gift_cards",
+    "question": "Can I use a gift card in another currency?"
+  },
+  {
+    "id": "FAQ-0181",
+    "category": "promotions",
+    "question": "Where do I enter a promotional code?"
+  },
+  {
+    "id": "FAQ-0182",
+    "category": "promotions",
+    "question": "Why is my promotional code invalid?"
+  },
+  {
+    "id": "FAQ-0183",
+    "category": "promotions",
+    "question": "Can I combine two promotional codes?"
+  },
+  {
+    "id": "FAQ-0184",
+    "category": "promotions",
+    "question": "Can a discount code be added after I place an order?"
+  },
+  {
+    "id": "FAQ-0185",
+    "category": "promotions",
+    "question": "How long will a sale price remain available?"
+  },
+  {
+    "id": "FAQ-0186",
+    "category": "promotions",
+    "question": "What counts toward a promotion's minimum spend?"
+  },
+  {
+    "id": "FAQ-0187",
+    "category": "promotions",
+    "question": "Who qualifies for the new-customer discount?"
+  },
+  {
+    "id": "FAQ-0188",
+    "category": "promotions",
+    "question": "What happens to my discount if I return part of an order?"
+  },
+  {
+    "id": "FAQ-0189",
+    "category": "promotions",
+    "question": "Does Northstar Shop match competitors' prices?"
+  },
+  {
+    "id": "FAQ-0190",
+    "category": "promotions",
+    "question": "Is there a student discount?"
+  },
+  {
+    "id": "FAQ-0191",
+    "category": "customer_support",
+    "question": "How can I contact customer support?"
+  },
+  {
+    "id": "FAQ-0192",
+    "category": "customer_support",
+    "question": "When is customer support open?"
+  },
+  {
+    "id": "FAQ-0193",
+    "category": "customer_support",
+    "question": "How can I check my support case?"
+  },
+  {
+    "id": "FAQ-0194",
+    "category": "customer_support",
+    "question": "How do I add information to an existing support case?"
+  },
+  {
+    "id": "FAQ-0195",
+    "category": "customer_support",
+    "question": "Should I open another case if support has not replied?"
+  },
+  {
+    "id": "FAQ-0196",
+    "category": "customer_support",
+    "question": "Can I ask for my case to be escalated?"
+  },
+  {
+    "id": "FAQ-0197",
+    "category": "customer_support",
+    "question": "Which languages does customer support offer?"
+  },
+  {
+    "id": "FAQ-0198",
+    "category": "customer_support",
+    "question": "Can I attach evidence to a support request?"
+  },
+  {
+    "id": "FAQ-0199",
+    "category": "customer_support",
+    "question": "How do I make a formal complaint?"
+  },
+  {
+    "id": "FAQ-0200",
+    "category": "customer_support",
+    "question": "Why is support asking me to verify my identity?"
+  }
+]

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -9,6 +10,16 @@ from scripts.validate_raw_dataset import validate_dataset
 
 
 class SyntheticDatasetTests(unittest.TestCase):
+    def test_web_query_catalog_matches_canonical_titles_and_contains_no_answers(self) -> None:
+        catalog_path = Path(__file__).resolve().parents[1] / "web" / "lib" / "faq-catalog.json"
+        catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+        expected = [
+            {"id": row["canonical_document_id"], "category": row["category"], "question": row["question"]}
+            for row in build_records()
+            if row["variant_style"] == "canonical"
+        ]
+        self.assertEqual(catalog, expected)
+
     def test_catalog_has_expected_shape_and_unique_values(self) -> None:
         records = build_records()
 
