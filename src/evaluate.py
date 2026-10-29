@@ -57,7 +57,7 @@ def evaluate_retriever(
 
     for row in queries:
         unfiltered = retriever.search(row["query"], top_k=5)
-        ids = [result.document_id for result in unfiltered]
+        ids = [result.canonical_document_id or result.document_id for result in unfiltered]
         top_similarity = unfiltered[0].similarity if unfiltered else -1.0
         expected = row["expected_document_id"]
         expected_rank = ids.index(expected) + 1 if expected in ids else 0
@@ -112,7 +112,7 @@ def write_results(
         encoding="utf-8",
     )
     with (directory / "retrieval_details.csv").open("w", encoding="utf-8", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=details[0].keys())
+        writer = csv.DictWriter(file, fieldnames=details[0].keys(), lineterminator="\n")
         writer.writeheader()
         writer.writerows(details)
 

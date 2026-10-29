@@ -1,6 +1,6 @@
 # AI Customer Support Assistant — RAG
 
-A lightweight, interview-defensible Retrieval-Augmented Generation (RAG) application for the fictional retailer **Northstar Shop**. It retrieves relevant FAQ records with Sentence Transformer embeddings and FAISS, then supplies those records to a configurable local or OpenAI language model through a grounded LangChain prompt.
+A lightweight, interview-defensible Retrieval-Augmented Generation (RAG) application for the fictional retailer **Northstar Shop**. It includes a fully local Streamlit/FAISS implementation and a Vercel-ready Next.js implementation backed by an OpenAI hosted vector store and the Responses API.
 
 ## Quick start from a fresh clone
 
@@ -36,7 +36,7 @@ This portfolio project demonstrates the complete path from raw support data to e
 
 ## Project status
 
-The complete local architecture is implemented and works without an API key using `google/flan-t5-small`. OpenAI is an optional provider configured through an environment variable. Both retrieval and local-model response results have been measured; the deliberately weak local baseline is documented rather than presented as production quality.
+The complete local architecture works without an API key. A separate `web/` application is ready for Vercel and uses an OpenAI API key only on the server. Both retrieval and local-model response results are measured; the deliberately weak local baseline is documented rather than presented as production quality.
 
 ## Problem statement
 
@@ -54,6 +54,8 @@ The system embeds each approved FAQ question, searches those vectors for the clo
 - LangChain prompt primitives
 - Local FLAN-T5 and optional OpenAI generation
 - Streamlit
+- Next.js 16 and React 19
+- OpenAI hosted vector stores and Responses API
 - Pytest
 
 ## Architecture
@@ -84,7 +86,9 @@ Retrieval finds relevant external information, augmentation inserts that informa
 
 ## Dataset
 
-The reproducible pilot contains 200 synthetic FAQs: 20 categories, 10 distinct intents per category, stable IDs, fictional approved answers, and no real personal data. It does not represent real customer traffic.
+The reproducible dataset contains **2,000 labeled FAQ phrasings** across 20 categories. These are intentionally derived from **200 canonical support policies**, with 10 labeled question styles per policy. Each row has a unique document ID and points to its policy through `canonical_document_id`. This improves retrieval training coverage without pretending there are 2,000 independent company policies.
+
+The data is deterministic, fictional, balanced at 100 rows per category, and contains no real personal data. It is suitable for a portfolio-scale RAG demonstration, not a production benchmark or a substitute for real support traffic.
 
 ```bash
 python3 scripts/generate_synthetic_dataset.py
@@ -101,7 +105,7 @@ Preprocessing validates the schema, normalizes Unicode and whitespace, rejects i
 python3 -m src.preprocessing
 ```
 
-Measured result: 200 input rows, 200 retained rows, zero removed rows, zero exact duplicates, and 20 categories.
+Measured result: 2,000 input rows, 2,000 retained rows, 200 canonical policies, 10 phrasing styles, zero removed rows, zero exact duplicate questions, and 20 categories.
 
 ## Embeddings
 
@@ -111,7 +115,7 @@ Measured result: 200 input rows, 200 retained rows, zero removed rows, zero exac
 
 The project uses the exact `faiss.IndexFlatIP`; inner product on normalized vectors equals cosine similarity. The returned value is a similarity—not a probability or confidence score.
 
-The persisted index contains `index.faiss`, `documents.json`, and `manifest.json`, preserving the vector-position-to-document mapping and recording the model, dimension, count, index type, and metric.
+The persisted index contains `index.faiss`, `documents.json`, and `manifest.json`, preserving the vector-position-to-document mapping and recording the model, dimension, count, index type, and metric. Search examines a wider candidate pool and de-duplicates results by canonical policy, so alternate phrasings cannot fill all three source positions with the same answer.
 
 ```bash
 python3 build_index.py
@@ -143,13 +147,13 @@ Verified pilot results with `TOP_K=3` for the application and a `0.35` fallback 
 
 | Metric | Result |
 |---|---:|
-| Recall@1 | 83.3% |
-| Recall@3 | 91.7% |
-| Recall@5 | 96.7% |
-| MRR@5 | 88.1% |
-| Out-of-domain rejection | 90.0% |
+| Recall@1 | 80.0% |
+| Recall@3 | 90.0% |
+| Recall@5 | 98.3% |
+| MRR@5 | 86.4% |
+| Out-of-domain rejection | 80.0% |
 
-These results use 60 in-domain and 10 out-of-domain queries from this synthetic pilot. They are not production benchmarks. At threshold `0.35`, all 60 in-domain queries passed the acceptance gate, while one out-of-domain income-tax query was incorrectly accepted because it was semantically close to the FAQ about sales-tax calculation.
+These results use 60 in-domain and 10 out-of-domain queries from this synthetic pilot. They are not production benchmarks. At threshold `0.35`, all 60 in-domain queries passed the acceptance gate. Two out-of-domain queries were incorrectly accepted: an income-tax query was semantically close to sales-tax calculation, and a stock-picking query narrowly cleared the threshold.
 
 ### Response quality
 
@@ -196,13 +200,47 @@ cp .env.example .env
 OPENAI_API_KEY=       # required only when LLM_PROVIDER=openai
 LLM_PROVIDER=local    # change to openai to use ChatOpenAI
 LOCAL_LLM_MODEL=google/flan-t5-small
-LLM_MODEL=gpt-4.1-mini
+LLM_MODEL=gpt-6-luna
 EMBEDDING_MODEL=all-MiniLM-L6-v2
 TOP_K=3
 MIN_SIMILARITY=0.35
 ```
 
 Never commit `.env`.
+
+## Vercel and OpenAI setup
+
+The Vercel application lives in `web/`. It does not ship FAISS, PyTorch, or the local embedding model. Instead, a one-time setup script groups the 2,000 labeled phrasings into 200 canonical FAQ files and uploads them to an OpenAI hosted vector store. At request time, the server searches that store, sends approved source text to the Responses API, and returns the answer with visible supporting FAQs.
+
+1. Create the local secret file:
+
+   ```bash
+   cp web/.env.example web/.env.local
+   ```
+
+2. Put your key in `web/.env.local`:
+
+   ```text
+   OPENAI_API_KEY=your_key_here
+   ```
+
+3. From the repository root, create the hosted knowledge base:
+
+   ```bash
+   python scripts/setup_openai_vector_store.py
+   ```
+
+4. Copy the printed `OPENAI_VECTOR_STORE_ID` into `web/.env.local`, then test locally:
+
+   ```bash
+   cd web
+   npm install
+   npm run dev
+   ```
+
+5. In Vercel, set the project Root Directory to `web` and add `OPENAI_API_KEY` and `OPENAI_VECTOR_STORE_ID` under Project Settings → Environment Variables. `OPENAI_MODEL=gpt-6-luna` and `MIN_SEARCH_SCORE=0.25` are optional overrides.
+
+Both `.env` and `web/.env.local` are ignored by Git. Never paste the key into source code, commit it, put it in a `NEXT_PUBLIC_` variable, or send it through the browser.
 
 ## Running the application
 
@@ -241,7 +279,7 @@ Out-of-domain example: `What will tomorrow's weather be?`
 
 Inspect `retrieval_details.csv` for missing expected documents, correct documents ranked below overlapping intents, weak similarities for valid questions, high similarities for out-of-domain questions, and threshold errors. Retrieval failures and generation failures must be analyzed separately.
 
-Two expected documents were absent from the top five: a guest-checkout query was confused with sign-in support, and a subscription-cancellation query was confused with pausing a subscription. These are useful examples of overlapping intent language rather than results to hide.
+One expected document was absent from the top five: a subscription-cancellation query was confused with nearby recurring-delivery intents. A guest-checkout query ranked fourth. These are useful examples of overlapping intent language rather than results to hide.
 
 ## Limitations
 
@@ -267,6 +305,7 @@ Improvements should follow measured errors. Candidates include expanding difficu
 ├── scripts/
 ├── src/
 ├── tests/
+├── web/                       # Vercel-ready Next.js application
 ├── vectorstore/faiss_index/
 ├── .env.example
 ├── .python-version

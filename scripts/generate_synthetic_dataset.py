@@ -267,14 +267,60 @@ FAQ_RECORDS = [
 ]
 
 
+QUESTION_STYLES = (
+    ("canonical", "{question}"),
+    ("direct_help", "I need help with this: {question}"),
+    ("clarification", "Could you clarify this for me: {question}"),
+    ("policy", "Please explain the official policy for this: {question}"),
+    ("issue", "I'm trying to resolve an issue. {question}"),
+    ("next_step", "What should a customer do here: {question}"),
+    ("walkthrough", "Can support walk me through this: {question}"),
+    ("confirmation", "I want to make sure I understand. {question}"),
+    ("before_action", "Before I take action, could you answer this: {question}"),
+    ("category_context", "This is about {category} support. {question}"),
+)
+
+CANONICAL_RECORD_COUNT = 200
+VARIANTS_PER_RECORD = len(QUESTION_STYLES)
+EXPECTED_RECORD_COUNT = CANONICAL_RECORD_COUNT * VARIANTS_PER_RECORD
+
+
 def build_records() -> list[dict[str, str]]:
-    """Return numbered records after enforcing pilot invariants."""
-    if len(FAQ_RECORDS) != 200:
-        raise ValueError(f"Expected 200 seed records, found {len(FAQ_RECORDS)}")
+    """Return 2,000 labeled FAQ phrasings derived from 200 policies.
+
+    The canonical records remain first so their stable IDs continue to match
+    the checked-in retrieval evaluation set. Every alternate phrasing points
+    back to the same canonical policy through ``canonical_document_id``.
+    """
+    if len(FAQ_RECORDS) != CANONICAL_RECORD_COUNT:
+        raise ValueError(
+            f"Expected {CANONICAL_RECORD_COUNT} seed records, found {len(FAQ_RECORDS)}"
+        )
 
     records: list[dict[str, str]] = []
-    for position, record in enumerate(FAQ_RECORDS, start=1):
-        records.append({"document_id": f"FAQ-{position:04d}", **record, "data_origin": "synthetic"})
+    for variant_index, (style, template) in enumerate(QUESTION_STYLES, start=1):
+        for seed_position, record in enumerate(FAQ_RECORDS, start=1):
+            position = (variant_index - 1) * CANONICAL_RECORD_COUNT + seed_position
+            canonical_document_id = f"FAQ-{seed_position:04d}"
+            intent = record["intent"]
+            if variant_index > 1:
+                intent = f"{intent}__{style}"
+            records.append(
+                {
+                    "document_id": f"FAQ-{position:04d}",
+                    "canonical_document_id": canonical_document_id,
+                    "variant_style": style,
+                    **record,
+                    "intent": intent,
+                    "question": template.format(
+                        question=record["question"],
+                        category=record["category"].replace("_", " "),
+                    ),
+                    "data_origin": "synthetic",
+                }
+            )
+    if len(records) != EXPECTED_RECORD_COUNT:
+        raise AssertionError(f"Expected {EXPECTED_RECORD_COUNT} records, built {len(records)}")
     return records
 
 
@@ -298,7 +344,7 @@ def main() -> None:
     parser.add_argument("--force", action="store_true", help="Replace an existing generated CSV.")
     args = parser.parse_args()
     write_dataset(args.output, overwrite=args.force)
-    print(f"Wrote {len(FAQ_RECORDS)} synthetic FAQ records to {args.output}")
+    print(f"Wrote {len(build_records())} synthetic FAQ records to {args.output}")
 
 
 if __name__ == "__main__":

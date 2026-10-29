@@ -32,6 +32,47 @@ class RetrieverTests(unittest.TestCase):
     def test_threshold_removes_weak_results(self) -> None:
         self.assertEqual(self.retriever.search("weak", top_k=2, min_similarity=0.3), [])
 
+    def test_search_deduplicates_question_variants_by_canonical_policy(self) -> None:
+        documents = [
+            {
+                "document_id": "FAQ-1",
+                "canonical_document_id": "FAQ-1",
+                "question": "Canonical alpha?",
+                "answer": "A",
+                "category": "one",
+                "intent": "alpha",
+            },
+            {
+                "document_id": "FAQ-201",
+                "canonical_document_id": "FAQ-1",
+                "question": "Please explain alpha?",
+                "answer": "A",
+                "category": "one",
+                "intent": "alpha__policy",
+            },
+            {
+                "document_id": "FAQ-2",
+                "canonical_document_id": "FAQ-2",
+                "question": "Beta?",
+                "answer": "B",
+                "category": "two",
+                "intent": "beta",
+            },
+        ]
+        index = faiss.IndexFlatIP(2)
+        index.add(np.asarray([[1.0, 0.0], [0.95, 0.05], [0.0, 1.0]], dtype=np.float32))
+        retriever = FaissRetriever(
+            index,
+            documents,
+            IndexManifest("fake", 2, 3),
+            FakeEmbedder({"alpha query": [0.9, 0.1]}),
+        )
+
+        results = retriever.search("alpha query", top_k=2)
+
+        self.assertEqual([result.document_id for result in results], ["FAQ-1", "FAQ-2"])
+        self.assertEqual([result.rank for result in results], [1, 2])
+
     def test_empty_query_is_rejected(self) -> None:
         with self.assertRaises(ValueError):
             self.retriever.search("  ")

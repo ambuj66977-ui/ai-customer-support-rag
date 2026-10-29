@@ -39,7 +39,8 @@ class OpenAILanguageModel:
             )
         from langchain_openai import ChatOpenAI
 
-        self._client = ChatOpenAI(model=model, api_key=api_key, temperature=0)
+        options = {"reasoning_effort": "none"} if model.startswith("gpt-6") else {}
+        self._client = ChatOpenAI(model=model, api_key=api_key, temperature=0, **options)
 
     def generate(self, messages: Sequence[BaseMessage]) -> str:
         response = self._client.invoke(list(messages))

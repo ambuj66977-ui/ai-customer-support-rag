@@ -12,6 +12,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = PROJECT_ROOT / "data" / "raw" / "customer_support_synthetic.csv"
 REQUIRED_COLUMNS = {
     "document_id",
+    "canonical_document_id",
+    "variant_style",
     "category",
     "intent",
     "question",
@@ -43,6 +45,7 @@ def validate_dataset(input_path: Path) -> dict[str, object]:
         raise ValueError(f"Empty required fields found: {empty_fields[:5]}")
 
     ids = [row["document_id"].strip() for row in rows]
+    canonical_ids = [row["canonical_document_id"].strip() for row in rows]
     questions = [row["question"].strip().casefold() for row in rows]
     intents = [row["intent"].strip().casefold() for row in rows]
     origins = {row["data_origin"].strip().casefold() for row in rows}
@@ -58,9 +61,19 @@ def validate_dataset(input_path: Path) -> dict[str, object]:
     if origins != {"synthetic"}:
         raise ValueError(f"Unexpected data_origin values: {sorted(origins)}")
 
+    unknown_canonical_ids = sorted(set(canonical_ids) - set(ids))
+    if unknown_canonical_ids:
+        raise ValueError(
+            f"Rows reference missing canonical documents: {unknown_canonical_ids[:5]}"
+        )
+
     category_counts = Counter(row["category"].strip() for row in rows)
+    canonical_count = len(set(canonical_ids))
+    variant_styles = Counter(row["variant_style"].strip() for row in rows)
     return {
         "rows": len(rows),
+        "canonical_records": canonical_count,
+        "variant_styles": dict(sorted(variant_styles.items())),
         "categories": len(category_counts),
         "category_counts": dict(sorted(category_counts.items())),
         "duplicate_ids": duplicate_ids,
@@ -76,6 +89,8 @@ def main() -> None:
     args = parser.parse_args()
     stats = validate_dataset(args.input)
     print(f"Rows: {stats['rows']}")
+    print(f"Canonical records: {stats['canonical_records']}")
+    print(f"Variant styles: {stats['variant_styles']}")
     print(f"Categories: {stats['categories']}")
     print(f"Category counts: {stats['category_counts']}")
     print(f"Duplicate IDs: {stats['duplicate_ids']}")

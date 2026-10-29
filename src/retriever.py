@@ -21,6 +21,7 @@ class RetrievalResult:
     intent: str
     similarity: float
     rank: int
+    canonical_document_id: str = ""
 
 
 class FaissRetriever:
@@ -70,27 +71,36 @@ class FaissRetriever:
         if query_vector.shape[1] != self.manifest.dimension:
             raise ValueError("Query embedding dimension does not match the index")
 
-        result_count = min(top_k, len(self.documents))
-        similarities, positions = self.index.search(query_vector, result_count)
+        # Each policy has multiple training phrasings. Search a wider candidate
+        # pool, then return distinct canonical policies so the UI never shows
+        # three copies of the same approved answer.
+        candidate_count = min(max(top_k * 20, top_k), len(self.documents))
+        similarities, positions = self.index.search(query_vector, candidate_count)
         results: list[RetrievalResult] = []
-        for rank, (position, similarity) in enumerate(
-            zip(positions[0], similarities[0], strict=True), start=1
-        ):
+        seen_canonical_ids: set[str] = set()
+        for position, similarity in zip(positions[0], similarities[0], strict=True):
             if position < 0:
                 continue
             score = float(similarity)
             if min_similarity is not None and score < min_similarity:
                 continue
             document = self.documents[int(position)]
+            canonical_id = document.get("canonical_document_id", document["document_id"])
+            if canonical_id in seen_canonical_ids:
+                continue
+            seen_canonical_ids.add(canonical_id)
             results.append(
                 RetrievalResult(
-                    document_id=document["document_id"],
+                    document_id=canonical_id,
                     question=document["question"],
                     answer=document["answer"],
                     category=document["category"],
                     intent=document["intent"],
                     similarity=score,
-                    rank=rank,
+                    rank=len(results) + 1,
+                    canonical_document_id=canonical_id,
                 )
             )
+            if len(results) == top_k:
+                break
         return results

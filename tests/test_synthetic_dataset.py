@@ -12,10 +12,12 @@ class SyntheticDatasetTests(unittest.TestCase):
     def test_catalog_has_expected_shape_and_unique_values(self) -> None:
         records = build_records()
 
-        self.assertEqual(len(records), 200)
-        self.assertEqual(len({row["document_id"] for row in records}), 200)
-        self.assertEqual(len({row["question"].casefold() for row in records}), 200)
-        self.assertEqual(len({row["intent"].casefold() for row in records}), 200)
+        self.assertEqual(len(records), 2_000)
+        self.assertEqual(len({row["document_id"] for row in records}), 2_000)
+        self.assertEqual(len({row["question"].casefold() for row in records}), 2_000)
+        self.assertEqual(len({row["intent"].casefold() for row in records}), 2_000)
+        self.assertEqual(len({row["canonical_document_id"] for row in records}), 200)
+        self.assertEqual(len({row["variant_style"] for row in records}), 10)
         self.assertEqual({row["data_origin"] for row in records}, {"synthetic"})
 
     def test_generated_csv_passes_validation(self) -> None:
@@ -25,9 +27,10 @@ class SyntheticDatasetTests(unittest.TestCase):
 
             stats = validate_dataset(output)
 
-        self.assertEqual(stats["rows"], 200)
+        self.assertEqual(stats["rows"], 2_000)
+        self.assertEqual(stats["canonical_records"], 200)
         self.assertEqual(stats["categories"], 20)
-        self.assertEqual(set(stats["category_counts"].values()), {10})
+        self.assertEqual(set(stats["category_counts"].values()), {100})
 
     def test_generator_protects_existing_raw_file(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

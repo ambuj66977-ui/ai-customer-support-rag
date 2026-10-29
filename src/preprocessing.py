@@ -20,6 +20,8 @@ DEFAULT_REPORT = PROJECT_ROOT / "data" / "processed" / "preprocessing_report.jso
 
 REQUIRED_COLUMNS = {
     "document_id",
+    "canonical_document_id",
+    "variant_style",
     "category",
     "intent",
     "question",
@@ -28,6 +30,8 @@ REQUIRED_COLUMNS = {
 }
 OUTPUT_COLUMNS = [
     "document_id",
+    "canonical_document_id",
+    "variant_style",
     "category",
     "intent",
     "question",

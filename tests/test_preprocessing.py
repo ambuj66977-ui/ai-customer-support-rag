@@ -18,6 +18,8 @@ from src.preprocessing import (
 def valid_row(**overrides: str) -> dict[str, str]:
     row = {
         "document_id": "FAQ-0001",
+        "canonical_document_id": "FAQ-0001",
+        "variant_style": "canonical",
         "category": "account",
         "intent": "change_email",
         "question": "How can I change my email address?",

@@ -30,7 +30,7 @@ class Settings:
     top_k: int = _env_int("TOP_K", 3)
     min_similarity: float = _env_float("MIN_SIMILARITY", 0.35)
     llm_provider: str = os.getenv("LLM_PROVIDER", "local").strip().lower()
-    llm_model: str = os.getenv("LLM_MODEL", "gpt-4.1-mini")
+    llm_model: str = os.getenv("LLM_MODEL", "gpt-6-luna")
     local_llm_model: str = os.getenv("LOCAL_LLM_MODEL", "google/flan-t5-small")
     openai_api_key: str | None = os.getenv("OPENAI_API_KEY") or os.getenv("LLM_API_KEY")
     processed_data_path: Path = PROJECT_ROOT / "data" / "processed" / "faq_documents.csv"
