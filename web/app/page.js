@@ -3,25 +3,38 @@
 import { useRef, useState } from "react";
 
 const suggestions = [
-  ["How do I track my order?", "How do I track my order?", "↗"],
-  ["What is your return policy?", "What is your return policy?", "↩"],
-  ["When will my refund arrive?", "When will my refund arrive?", "◷"],
+  ["How do I track my order?", "How do I track my order?", "package"],
+  ["What is your return policy?", "What is your return policy?", "return"],
+  ["When will my refund arrive?", "When will my refund arrive?", "receipt"],
 ];
+
+function Icon({ name, className = "" }) {
+  const paths = {
+    back: <path d="m14 6-6 6 6 6M8 12h12" />,
+    package: <><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" /><path d="m4 7.5 8 4.5 8-4.5M12 12v9M8 5.25l8 4.5" /></>,
+    return: <><path d="m8 5-5 5 5 5M3 10h11a6 6 0 0 1 0 12" transform="translate(1 -2)" /></>,
+    receipt: <><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z" /><path d="M9 7h6M9 11h6M9 15h3" /></>,
+    article: <><path d="M7 4h13v16H7zM4 7v13a3 3 0 0 0 3 3h10" /><path d="M10 8h7M10 12h7M10 16h4" /></>,
+    chevron: <path d="m9 5 7 7-7 7" />,
+    clock: <><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></>,
+  };
+  return <svg className={className} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>;
+}
 
 function Sources({ sources }) {
   if (!sources?.length) return null;
   return (
     <details className="sources">
-      <summary>▣ &nbsp; Related help articles ({sources.length})</summary>
+      <summary><Icon name="article" /><span>Related help articles ({sources.length})</span><Icon name="chevron" className="disclosure-icon" /></summary>
       <div className="source-list">
         {sources.map((source) => (
-          <article key={`${source.documentId}-${source.question}`}>
+          <article key={source.documentId + "-" + source.question}>
             <strong>{source.question}</strong>
             <p>{source.answer}</p>
-            <small>Northstar Help Center · {source.category.replaceAll("_", " ")}</small>
+            <small>Northstar Help Center: {source.category.replaceAll("_", " ")}</small>
           </article>
         ))}
-        <p className="similarity-note">These articles explain the policies used in this answer.</p>
+        <p className="source-note">These articles explain the policies used in this answer.</p>
       </div>
     </details>
   );
@@ -73,59 +86,67 @@ export default function Home() {
 
   return (
     <main>
-      <header className="brand"><span>✦</span> northstar shop <i>/</i> <small>customer care</small></header>
-      <section className="messenger">
+      <header className="site-header">
+        <div className="brand">northstar shop<span>Customer care</span></div>
+        <p className="header-note">Here to help with your shopping.</p>
+      </header>
+      <section className={"messenger " + (screen === "chat" ? "is-chat" : "")} aria-label="Northstar Shop support">
         <header className="toolbar">
-          <button aria-label="Back to welcome" onClick={() => setScreen("welcome")} disabled={screen === "welcome" || loading}>←</button>
-          <div><strong>Northstar Shop Support</strong><span>Help with your shopping, every step</span></div>
-          <button aria-label="Clear conversation" onClick={() => setMessages([])} disabled={loading}>↻</button>
+          <button type="button" aria-label="Back to welcome" onClick={() => setScreen("welcome")} disabled={screen === "welcome" || loading}><Icon name="back" /><span>Back</span></button>
+          <div className="toolbar-title"><strong>Help center</strong><span>Northstar Shop Support</span></div>
+          <button type="button" aria-label="Clear conversation" onClick={() => setMessages([])} disabled={loading}>Clear chat</button>
         </header>
-
         {screen === "welcome" ? (
           <div className="welcome">
             <div className="welcome-copy">
-              <small>WELCOME TO NORTHSTAR SHOP</small>
-              <h1>Here to help. <span>✳</span></h1>
-              <p>We’re an online store for everyday products and accessories.<br />Get help before you buy, while your order is on its way, or after it arrives.</p>
+              <h1>How can we help?</h1>
+              <p className="store-intro">We’re an online store for everyday products and accessories.</p>
+              <p className="support-intro">Get help before you buy, while your order is on its way, or after it arrives.</p>
+              <div className="start-card">
+                <button type="button" className="primary-button" onClick={() => setScreen("chat")}>{messages.length ? "Continue your conversation" : "Start a conversation"}</button>
+                <p>Ask about an order, check our returns policy, or get help with a payment.</p>
+              </div>
             </div>
-            <div className="presence">
-              <div className="avatar">✦</div>
-              <strong>Your shopping questions, answered</strong>
-              <span>Delivery · Returns · Refunds · Payments · Account help</span>
-              <small>✧ &nbsp; AI support from the Northstar Help Center</small>
-            </div>
-            <div className="start-card">
-              <h2>How can we help?</h2>
-              <p>Ask about an order, check our returns policy, or get help with a payment.</p>
-              <button onClick={() => setScreen("chat")}>{messages.length ? "Continue your conversation" : "Start a conversation"}<span>→</span></button>
-            </div>
-            <div className="topics"><small>POPULAR QUESTIONS</small>
-              {suggestions.map(([label, text, icon]) => <button key={label} onClick={() => ask(text)}><span>{icon}</span>{label}<b>→</b></button>)}
+            <div className="help-index">
+              <div className="topics">
+                <h2>Popular questions</h2>
+                {suggestions.map(([label, text, icon]) => (
+                  <button type="button" key={label} onClick={() => ask(text)}><Icon name={icon} /><span>{label}</span><Icon name="chevron" className="topic-chevron" /></button>
+                ))}
+              </div>
+              <div className="presence">
+                <strong>Your shopping questions, answered</strong>
+                <span>Delivery, returns, refunds, payments and account help.</span>
+                <small>AI support from the Northstar Help Center.</small>
+              </div>
             </div>
           </div>
         ) : (
-          <>
-            <div className="conversation">
-              <div className="date-label">NORTHSTAR SHOP HELP CENTER</div>
+          <div className="chat-workspace">
+            <div className="conversation" role="log" aria-live="polite" aria-label="Your conversation">
+              <h1 className="conversation-title">Your conversation</h1>
               <div className="message assistant"><label>Northstar AI assistant</label><div className="bubble">Hi! I’m Northstar Shop’s AI support assistant. We’re an online store for everyday products and accessories. Ask about delivery, returns, refunds, payments, or your account. I can explain our policies and next steps, but can’t access or change individual orders.</div></div>
               {messages.map((message, index) => (
-                <div className={`message ${message.role}`} key={index}>
+                <div className={"message " + message.role} key={index}>
                   <label>{message.role === "user" ? "You" : "Northstar AI assistant"}</label>
-                  <div className={`bubble ${message.error ? "error" : ""}`}>{message.text}</div>
+                  <div className={"bubble " + (message.error ? "error" : "")}>{message.text}</div>
                   <Sources sources={message.sources} />
                 </div>
               ))}
-              {loading && <div className="thinking"><i></i><i></i><i></i><span>Checking our help center…</span></div>}
+              {loading && <div className="thinking" role="status"><Icon name="clock" /><span>Checking our help center…</span></div>}
             </div>
-            <form className="composer" onSubmit={submit}>
-              <input ref={inputRef} value={question} onChange={(event) => setQuestion(event.target.value)} disabled={loading} maxLength={1000} placeholder="Ask about orders or returns…" aria-label="Ask Northstar Shop a support question" />
-              <button disabled={loading || !question.trim()} aria-label="Send question">↑</button>
-              <small>AI-assisted support · Answers based on our help center.</small>
+            <form className="composer" onSubmit={submit} aria-busy={loading}>
+              <label htmlFor="support-question">Your question</label>
+              <div className="composer-row">
+                <input id="support-question" name="question" type="text" autoComplete="off" required ref={inputRef} value={question} onChange={(event) => setQuestion(event.target.value)} disabled={loading} maxLength={1000} placeholder="When will my refund arrive?" aria-label="Ask Northstar Shop a support question" aria-describedby="support-help" />
+                <button type="submit" className="primary-button" disabled={loading} aria-label="Send question">{loading ? "Sending…" : "Send"}</button>
+              </div>
+              <small id="support-help">AI-assisted support. Answers based on our help center.</small>
             </form>
-          </>
+          </div>
         )}
       </section>
-      <footer>✧ &nbsp; Northstar Shop · Customer care<br /><small>Here to help with your shopping.</small></footer>
+      <footer><span>Northstar Shop</span><span>Customer care for your everyday shopping.</span></footer>
     </main>
   );
 }
